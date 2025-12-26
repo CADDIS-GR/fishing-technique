@@ -10,8 +10,8 @@ fishing-technique
 
 ## 🔬 주요 기법 연구 자료
 
-### 3. 싱킹 라인 운용 (Sinking Line)
-* **[📍 풀싱킹라인으로 바닥을 긁고 오는 기법](./풀싱킹라인으로_바닥을_긁고_오는.html)**
+### 1. 싱킹 라인 운용 (Sinking Line)
+* [📍 풀싱킹라인으로 바닥을 긁고 오는 기법](https://caddis-gr.github.io/fishing-technique/풀싱킹라인으로_바닥을_긁고_오는.html)
   * 저활성기 송어를 공략하기 위한 풀싱킹 라인의 바닥권 리트리브 및 운용 전략
 ---
 
