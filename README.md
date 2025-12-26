@@ -13,6 +13,10 @@ fishing-technique
 ### 1. 싱킹 라인 운용 (Sinking Line)
 * [📍 풀싱킹라인으로 바닥을 긁고 오는 기법](https://caddis-gr.github.io/fishing-technique/풀싱킹라인으로_바닥을_긁고_오는.html)
   * 저활성기 송어를 공략하기 위한 풀싱킹 라인의 바닥권 리트리브 및 운용 전략
+
+  ### 2. 다분할 인디케이터 마이크로 님핑
+* [📍 마이크로 님핑](https://caddis-gr.github.io/fishing-technique/다분할_인디케이터_마이크로_님핑.html)
+  * 한낮에 표층으로부터 2미터권까지를 공략하는 섬세하고, 아주 센스티브한 공략 채비 
 ---
 
 ## 💡 기법 운용의 원칙
