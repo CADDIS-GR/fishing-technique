@@ -11,7 +11,7 @@ fishing-technique
 ## 🔬 주요 기법 연구 자료
 
 ### 1. 님핑 (Nymphing)
-* **[📍 풀싱킹라인으로_바닥을_긁고_오는](./풀싱킹라인으로_바닥을_긁고_오는.html)**
+* **[📍 풀싱킹라인으로_바닥을_긁고_오는](https://caddis-gr.github.io/풀싱킹라인으로_바닥을_긁고_오는/.html)**
   * 저수지 송어 낚시의 핵심, 미세한 입질을 파악하는 다분할 채비법 정리
 * **[📍 Naked Fishing Field Guide](./Naked%20Fishing%20Field%20Guide.html)**
   * 인디케이터 없이 오로지 라인과 감각으로 느끼는 실전 필드 가이드
