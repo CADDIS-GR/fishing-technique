@@ -17,6 +17,10 @@ fishing-technique
   ### 2. 다분할 인디케이터 마이크로 님핑
 * [📍 마이크로 님핑](https://caddis-gr.github.io/fishing-technique/다분할_인디케이터_마이크로_님핑.html)
   * 한낮에 표층으로부터 2미터권까지를 공략하는 섬세하고, 아주 센스티브한 공략 채비 
+
+   ### 3. Naked Fly Fishing(with Emerger Tip Line)
+* [📍 Naked 님핑](https://caddis-gr.github.io/fishing-technique/Naked_Fishibg_이머저팁라인.html)
+  * 표층으로부터 3,4미터 깊수심까지를 공략하는 섬세한 채비(with chironomid Fly)
 ---
 
 ## 💡 기법 운용의 원칙
