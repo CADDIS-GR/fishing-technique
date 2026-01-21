@@ -1,73 +1,230 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>낚시대장의 Fly Fishing Technique Archive</title>
+    <title>플라이 낚시 기법 아카이브</title>
     <style>
-        :root { --primary-purple: #9b59b6; --soft-purple: #f3e5f5; --text-dark: #2c3e50; }
-        body { font-family: 'Pretendard', sans-serif; background-color: #ffffff; color: var(--text-dark); margin: 0; padding: 40px; }
-        .wrapper { max-width: 800px; margin: auto; }
-        header { border-bottom: 2px solid var(--primary-purple); padding-bottom: 20px; margin-bottom: 40px; }
-        h1 { color: var(--primary-purple); font-size: 24px; margin: 0; }
-        .tech-list { display: flex; flex-direction: column; gap: 15px; }
-        .tech-item { 
-            background: var(--soft-purple); 
-            padding: 20px; 
-            border-radius: 12px; 
-            text-decoration: none; 
-            color: inherit; 
-            transition: all 0.2s ease;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans KR', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .repo-info {
+            background: #f7fafc;
+            padding: 20px 40px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .repo-info a {
+            color: #3182ce;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .repo-info a:hover {
+            text-decoration: underline;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #2d3748;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .technique-grid {
+            display: grid;
+            gap: 15px;
+        }
+
+        .technique-card {
+            background: linear-gradient(135deg, #ffffff 0%, #f7fafc 100%);
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .technique-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            border-color: #667eea;
+        }
+
+        .technique-card h3 {
+            color: #2d3748;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+
+        .technique-card .description {
+            color: #718096;
+            font-size: 0.95em;
+            line-height: 1.6;
+        }
+
+        .technique-card .link {
+            display: inline-block;
+            margin-top: 12px;
+            color: #667eea;
+            font-weight: 600;
+            font-size: 0.9em;
+        }
+
+        .stats {
             display: flex;
-            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 20px;
+            background: #edf2f7;
+            border-radius: 12px;
+            margin-bottom: 30px;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
             align-items: center;
         }
-        .tech-item:hover { transform: translateX(10px); background: #ebdef0; }
-        .tech-title { font-weight: bold; font-size: 18px; color: #6a1b9a; }
-        .tech-desc { font-size: 14px; color: #7f8c8d; margin-top: 5px; }
-        .arrow { color: var(--primary-purple); font-weight: bold; }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: 700;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #718096;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="wrapper">
-        <header>
-            <h1>🎣 Fly Fishing Technique Archive</h1>
-            <p>저수지 송어 플라이 낚시의 핵심 전술과 기법을 기록합니다.</p>
-        </header>
+    <div class="container">
+        <div class="header">
+            <h1>🎣 플라이 낚시 기법 아카이브</h1>
+            <p>Fly Fishing Techniques Collection</p>
+        </div>
 
-        <div class="tech-list">
-            <a href="techniques/Naked_Fishing_이머저팁라인.html" class="tech-item">
-                <div>
-                    <div class="tech-title">이머저 팁 라인 테크닉</div>
-                    <div class="tech-desc">Naked Fishing 기법을 활용한 예민한 입질 파악법</div>
-                </div>
-                <div class="arrow">→</div>
+        <div class="repo-info">
+            <a href="https://github.com/CADDIS-GR/fishing-technique" target="_blank">
+                📂 GitHub Repository: CADDIS-GR/fishing-technique
             </a>
+        </div>
 
-            <a href="techniques/STILLWATER_TACTICAL_MATRIX.html" class="tech-item">
-                <div>
-                    <div class="tech-title">Stillwater Tactical Matrix</div>
-                    <div class="tech-desc">관리형 저수지 상황별 공략 전술 매트릭스</div>
+        <div class="content">
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">4</div>
+                    <div class="stat-label">기법</div>
                 </div>
-                <div class="arrow">→</div>
-            </a>
+                <div class="stat-item">
+                    <div class="stat-number">25</div>
+                    <div class="stat-label">커밋</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1</div>
+                    <div class="stat-label">브랜치</div>
+                </div>
+            </div>
 
-            <a href="techniques/다분할_인디케이터_마이크로_님핑.html" class="tech-item">
-                <div>
-                    <div class="tech-title">다분할 인디케이터 마이크로 님핑</div>
-                    <div class="tech-desc">극도의 예민함을 위한 채비 분할과 운용 기술</div>
-                </div>
-                <div class="arrow">→</div>
-            </a>
+            <div class="section">
+                <h2>📚 낚시 기법 목록</h2>
+                <div class="technique-grid">
+                    <div class="technique-card" onclick="window.open('techniques/Full_Sinking_Line_Bottom_Retrieval.html', '_blank')">
+                        <h3>🎯 Full Sinking Line Bottom Retrieval</h3>
+                        <p class="description">풀 싱킹 라인을 이용한 바닥층 리트리브 기법. 깊은 수심에서 효과적으로 물고기를 유인하는 방법을 다룹니다.</p>
+                        <span class="link">자세히 보기 →</span>
+                    </div>
 
-            <a href="techniques/풀싱킹라인으로_바닥을_긁고_오는.html" class="tech-item">
-                <div>
-                    <div class="tech-title">풀싱킹 라인 저층 공략 기법</div>
-                    <div class="tech-desc">바닥층 활성도 공략을 위한 효율적인 리트리브</div>
+                    <div class="technique-card" onclick="window.open('techniques/Multi-Split_Indicator_Nymphing.html', '_blank')">
+                        <h3>🪝 Multi-Split Indicator Nymphing</h3>
+                        <p class="description">멀티 스플릿 인디케이터를 활용한 님핑 기법. 수면 아래에서 자연스러운 미끼 움직임을 구현합니다.</p>
+                        <span class="link">자세히 보기 →</span>
+                    </div>
+
+                    <div class="technique-card" onclick="window.open('techniques/Naked_Fishing_Emerger_Tip.html', '_blank')">
+                        <h3>🦟 Naked Fishing Emerger Tip</h3>
+                        <p class="description">네이키드 피싱 이머저 팁 기법. 수면 바로 아래에서 활동하는 물고기를 타겟하는 섬세한 기술입니다.</p>
+                        <span class="link">자세히 보기 →</span>
+                    </div>
+
+                    <div class="technique-card" onclick="window.open('techniques/Stillwater_Tactical_Matrix.html', '_blank')">
+                        <h3>⚡ Stillwater Tactical Matrix</h3>
+                        <p class="description">정수역(저수지) 전술 매트릭스. 관리형 낚시터에서 상황에 따른 최적의 전략을 제시합니다.</p>
+                        <span class="link">자세히 보기 →</span>
+                    </div>
                 </div>
-                <div class="arrow">→</div>
-            </a>
+            </div>
+
+            <div class="section">
+                <h2>ℹ️ 프로젝트 정보</h2>
+                <div class="technique-card">
+                    <h3>📖 README</h3>
+                    <p class="description">프로젝트 소개 및 전체 개요를 확인하세요.</p>
+                    <span class="link" onclick="window.open('README.md', '_blank')">README 보기 →</span>
+                </div>
+            </div>
         </div>
     </div>
 </body>
