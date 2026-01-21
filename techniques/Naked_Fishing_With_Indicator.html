@@ -87,7 +87,6 @@
         const canvas = document.getElementById('fishingCanvas');
         const ctx = canvas.getContext('2d');
 
-        // 상태 변수
         let animationState = 'cast';
         let timer = 0;
         let castProgress = 0;
@@ -97,15 +96,14 @@
         let indicatorY = 150;
         let showIndicator = false;
         let indicatorBobAmount = 0;
-        let isComplete = false; // 완료 플래그 추가
+        let isComplete = false;
         
-        // 상수
         const WATER_LEVEL = 150;
         const BOTTOM_LEVEL = 450;
         const CAST_DISTANCE = 600;
         const SINK_TIME_LIMIT = 20;
         const INDICATOR_DISTANCE = 200;
-        const RETRIEVE_END_X = 300; // 리트리브 종료 지점 (낚시꾼 앞)
+        const RETRIEVE_END_X = 300;
 
         function toggleIndicator() {
             showIndicator = !showIndicator;
@@ -121,11 +119,9 @@
 
         function draw() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-
             drawBackground();
             drawFisherman();
 
-            // 완료 상태가 아닐 때만 업데이트
             if (!isComplete) {
                 if (animationState === 'cast') {
                     updateCast();
@@ -237,12 +233,9 @@
         }
 
         function updateRetrieve() {
-            // 다음 프레임의 위치를 미리 계산
             let nextFlyX = flyX - 1.0;
             
-            // 목표 지점에 도달하거나 지나쳤는지 체크
             if (nextFlyX <= RETRIEVE_END_X) {
-                // 완료 상태로 설정
                 isComplete = true;
                 animationState = 'complete';
                 flyX = RETRIEVE_END_X;
@@ -254,7 +247,6 @@
                 return;
             }
             
-            // 아직 도달하지 않았으면 계속 이동 (절대 목표 지점보다 작아지지 않도록)
             flyX = Math.max(nextFlyX, RETRIEVE_END_X);
             flyY = (BOTTOM_LEVEL - 20) + Math.sin(flyX * 0.1) * 2;
             
@@ -264,7 +256,6 @@
                 indicatorY = WATER_LEVEL + retrieveTension + Math.sin(flyX * 0.2) * 3;
             }
             
-            // 정확히 도달했으면 완료 처리
             if (flyX === RETRIEVE_END_X) {
                 isComplete = true;
                 animationState = 'complete';
@@ -278,7 +269,6 @@
         function drawGear() {
             let lineWaterEntry = 250;
             
-            // 메인 라인
             ctx.beginPath();
             ctx.strokeStyle = "#FF8C00";
             ctx.lineWidth = 2;
@@ -292,7 +282,6 @@
                 ctx.stroke();
 
                 if (showIndicator) {
-                    // 인디케이터에서 플라이까지 리더 라인
                     ctx.beginPath();
                     ctx.strokeStyle = "rgba(200, 255, 255, 0.8)";
                     ctx.lineWidth = 1.5;
@@ -302,10 +291,8 @@
                     ctx.stroke();
                     ctx.setLineDash([]);
                     
-                    // 인디케이터 그리기
                     drawIndicator(indicatorX, indicatorY);
                 } else {
-                    // 기존 라인 (인디케이터 없을 때)
                     ctx.beginPath();
                     ctx.strokeStyle = "#808000";
                     let tipStart = flyX - (flyX - lineWaterEntry) * 0.2;
@@ -324,17 +311,14 @@
                 }
             }
 
-            // 플라이
             ctx.fillStyle = "#FF0000";
             ctx.beginPath();
             ctx.arc(flyX, flyY, 4, 0, Math.PI * 2);
             ctx.fill();
 
-            // 정보 텍스트
             ctx.fillStyle = "white";
             ctx.font = "bold 16px Arial";
             
-            // 디버그 정보 (flyX 위치 표시)
             ctx.fillStyle = "#FFFFFF";
             ctx.font = "12px Arial";
             ctx.fillText(`FlyX: ${Math.floor(flyX)} / End: ${RETRIEVE_END_X}`, 20, 30);
@@ -369,26 +353,22 @@
         }
 
         function drawIndicator(x, y) {
-            // 인디케이터 본체
             ctx.fillStyle = "#FF3300";
             ctx.beginPath();
             ctx.arc(x, y, 8, 0, Math.PI * 2);
             ctx.fill();
             
-            // 하이라이트
             ctx.fillStyle = "#FF6644";
             ctx.beginPath();
             ctx.arc(x - 2, y - 2, 3, 0, Math.PI * 2);
             ctx.fill();
             
-            // 테두리
             ctx.strokeStyle = "#CC0000";
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.arc(x, y, 8, 0, Math.PI * 2);
             ctx.stroke();
             
-            // 수면 파장 효과
             if (animationState !== 'cast') {
                 ctx.strokeStyle = "rgba(255, 255, 255, 0.3)";
                 ctx.lineWidth = 1;
@@ -412,7 +392,7 @@
             indicatorX = 100;
             indicatorY = WATER_LEVEL;
             indicatorBobAmount = 0;
-            isComplete = false; // 완료 플래그 리셋
+            isComplete = false;
         }
     </script>
 </body>
