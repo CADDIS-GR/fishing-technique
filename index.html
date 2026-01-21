@@ -1,1 +1,74 @@
 
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>낚시대장의 Fly Fishing Technique Archive</title>
+    <style>
+        :root { --primary-purple: #9b59b6; --soft-purple: #f3e5f5; --text-dark: #2c3e50; }
+        body { font-family: 'Pretendard', sans-serif; background-color: #ffffff; color: var(--text-dark); margin: 0; padding: 40px; }
+        .wrapper { max-width: 800px; margin: auto; }
+        header { border-bottom: 2px solid var(--primary-purple); padding-bottom: 20px; margin-bottom: 40px; }
+        h1 { color: var(--primary-purple); font-size: 24px; margin: 0; }
+        .tech-list { display: flex; flex-direction: column; gap: 15px; }
+        .tech-item { 
+            background: var(--soft-purple); 
+            padding: 20px; 
+            border-radius: 12px; 
+            text-decoration: none; 
+            color: inherit; 
+            transition: all 0.2s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tech-item:hover { transform: translateX(10px); background: #ebdef0; }
+        .tech-title { font-weight: bold; font-size: 18px; color: #6a1b9a; }
+        .tech-desc { font-size: 14px; color: #7f8c8d; margin-top: 5px; }
+        .arrow { color: var(--primary-purple); font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>🎣 Fly Fishing Technique Archive</h1>
+            <p>저수지 송어 플라이 낚시의 핵심 전술과 기법을 기록합니다.</p>
+        </header>
+
+        <div class="tech-list">
+            <a href="techniques/Naked_Fishing_이머저팁라인.html" class="tech-item">
+                <div>
+                    <div class="tech-title">이머저 팁 라인 테크닉</div>
+                    <div class="tech-desc">Naked Fishing 기법을 활용한 예민한 입질 파악법</div>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="techniques/STILLWATER_TACTICAL_MATRIX.html" class="tech-item">
+                <div>
+                    <div class="tech-title">Stillwater Tactical Matrix</div>
+                    <div class="tech-desc">관리형 저수지 상황별 공략 전술 매트릭스</div>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="techniques/다분할_인디케이터_마이크로_님핑.html" class="tech-item">
+                <div>
+                    <div class="tech-title">다분할 인디케이터 마이크로 님핑</div>
+                    <div class="tech-desc">극도의 예민함을 위한 채비 분할과 운용 기술</div>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+
+            <a href="techniques/풀싱킹라인으로_바닥을_긁고_오는.html" class="tech-item">
+                <div>
+                    <div class="tech-title">풀싱킹 라인 저층 공략 기법</div>
+                    <div class="tech-desc">바닥층 활성도 공략을 위한 효율적인 리트리브</div>
+                </div>
+                <div class="arrow">→</div>
+            </a>
+        </div>
+    </div>
+</body>
+</html>
