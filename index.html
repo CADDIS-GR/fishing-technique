@@ -28,10 +28,32 @@
         }
 
         .header {
-            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            background: linear-gradient(135deg, rgba(45, 55, 72, 0.75) 0%, rgba(26, 32, 44, 0.75) 100%),
+                        url('images/trout-jump.jpg');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 40px;
+            padding: 80px 40px;
             text-align: center;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%);
+            z-index: 1;
+        }
+        
+        .header h1,
+        .header p {
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
         }
 
         .header h1 {
@@ -42,7 +64,7 @@
 
         .header p {
             font-size: 1.1em;
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
         .repo-info {
@@ -151,6 +173,10 @@
         @media (max-width: 768px) {
             .header h1 {
                 font-size: 2em;
+            }
+            
+            .header {
+                padding: 60px 20px;
             }
             
             .content {
