@@ -1,36 +1,35 @@
-# fishing-technique
-fishing-technique
+🎣 Fly Fishing Technique Archive
 
-# 🎓 CADDIS-GR: 플라이 낚시 기법 도감
+관리형 저수지(Stillwater) 플라이 낚시의 핵심 전술과 테크닉을 체계적으로 정리하는 개인 아카이브입니다.
 
-이곳은 관리형 저수지 및 계류에서 사용하는 **플라이 낚시의 다양한 기법**을 연구하고 정리하는 공간입니다. 
-이론부터 실전 운용법까지, 저만의 노하우를 HTML 문서로 기록합니다.
+🏗️ 저장소 구조 (Structure)
 
----
+index.html: 아카이브 메인 대문 페이지 (GitHub Pages용)
 
-## 🔬 주요 기법 연구 자료
+techniques/: 상세 기술 문서 보관 폴더
 
-### 1. 싱킹 라인 운용 (Sinking Line)
-* [📍 풀싱킹라인으로 바닥을 긁고 오는 기법](https://caddis-gr.github.io/fishing-technique/풀싱킹라인으로_바닥을_긁고_오는.html)
-  * 저활성기 송어를 공략하기 위한 풀싱킹 라인의 바닥권 리트리브 및 운용 전략
+Naked_Fishing_이머저팁라인.html
 
-  ### 2. 다분할 인디케이터 마이크로 님핑
-* [📍 마이크로 님핑](https://caddis-gr.github.io/fishing-technique/다분할_인디케이터_마이크로_님핑.html)
-  * 한낮에 표층으로부터 2미터권까지를 공략하는 섬세하고, 아주 센스티브한 공략 채비 
+STILLWATER_TACTICAL_MATRIX.html
 
-   ### 3. Naked Fly Fishing(with Emerger Tip Line)
-* [📍 Naked 님핑](https://caddis-gr.github.io/fishing-technique/Naked_Fishibg_이머저팁라인.html)
-  * 표층으로부터 3,4미터 깊수심까지를 공략하는 섬세한 채비(with chironomid Fly)
+다분할_인디케이터_마이크로_님핑.html
 
-   ### 4. STILLWATER_TACTICAL_MATRIX
-* [📍 STILLWATER_TACTICAL_MATRIX](https://caddis-gr.github.io/fishing-technique/STILLWATER_TACTICAL_MATRIX.html)
-  * 관리형 저수지(STILLWATER) 공략 기법
----
+풀싱킹라인으로_바닥을_긁고_오는.html
 
-## 💡 기법 운용의 원칙
-* **매칭 더 해치 (Matching the Hatch):** 현장의 곤충과 가장 유사한 패턴 선택
-* **드래그 프리 (Drag-free Drift):** 자연스러운 흐름을 위한 라인 핸들링
-* "모르면 모른다고 한다." - 끊임없이 탐구하는 낚시대장의 자세
+🔗 웹에서 바로 보기
 
----
-최종 수정일: 2025-12-26 | Jeff의 기술 지원
+이 저장소는 GitHub Pages를 통해 정적 웹사이트로 제공됩니다. 아래 링크에서 더 편하게 내용을 확인하실 수 있습니다.
+
+👉 테크닉 아카이브 바로가기 > (※ GitHub Pages 설정 후 생성되는 URL을 여기에 넣으시면 됩니다)
+
+📝 수록된 주요 테크닉
+
+Naked Fishing & 이머저 팁: 인디케이터 없이 라인의 미세한 변화를 읽는 고난도 기법
+
+Stillwater Tactical Matrix: 저수지 상황별 공략을 위한 전술 매트릭스
+
+다분할 인디케이터 마이크로 님핑: 극도로 예민한 입질을 잡아내기 위한 채비 운용
+
+풀싱킹 라인 저층 공략: 바닥층 활성도 저하 시 효율적인 리트리브 기술
+
+© 2026 낚시대장. All rights reserved.
