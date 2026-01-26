@@ -2,219 +2,109 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    
-    <!-- SEO Meta Tags -->
-    <title>혹한기 신기지 실전 공략 가이드 | Fly Fishing Archive</title>
-    <meta name="description" content="혹한기 신기지 저수지 플라이낚시 실전 공략법. 작게, 느리게, 자주 바꾸는 테크닉 중심 전략 가이드.">
-    <meta name="keywords" content="플라이낚시, 신기지, 혹한기, 저수지낚시, 플라이타잉, 님핑, 인디케이터">
-    <meta name="author" content="낚시대장 (Jeff)">
-    
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="혹한기 신기지 실전 공략 가이드">
-    <meta property="og:description" content="작게, 느리게, 자주 바꾸기 - 혹한기 테크닉 싸움의 정수">
-    <meta property="og:site_name" content="Fly Tying Archive">
-    
-    <!-- Preconnect for Performance -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="preconnect" href="https://unpkg.com">
-    
-    <!-- Styles -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>혹한기 신기지 실전 공략 가이드</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
-    
     <style>
         body {
             font-family: 'Noto Sans KR', sans-serif;
             -webkit-tap-highlight-color: transparent;
             user-select: none;
-            touch-action: pan-y pinch-zoom;
         }
-        
         .card-transition {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s ease-out;
         }
-        
         .nav-btn {
             cursor: pointer;
             z-index: 100;
             position: relative;
-            touch-action: manipulation;
         }
-        
         .nav-btn:active {
             transform: scale(0.9);
         }
-        
-        .nav-btn:focus-visible {
-            outline: 2px solid #3b82f6;
-            outline-offset: 2px;
-        }
-        
         i[data-lucide] {
             pointer-events: none;
         }
-        
         #card-body {
             cursor: pointer;
-            touch-action: manipulation;
         }
-        
+        /* 하단 도트 애니메이션 */
         .dot-transition {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        /* 슬라이드 애니메이션 */
-        @keyframes slideInRight {
-            from {
-                opacity: 0;
-                transform: translateX(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-        
-        .slide-in-right {
-            animation: slideInRight 0.3s ease-out;
-        }
-        
-        .slide-in-left {
-            animation: slideInLeft 0.3s ease-out;
-        }
-        
-        /* 로딩 상태 */
-        .loading {
-            opacity: 0.5;
-            pointer-events: none;
-        }
-        
-        /* 프린트 최적화 */
-        @media print {
-            body {
-                background: white;
-            }
-            .nav-btn, #bottom-dots, #top-progress {
-                display: none;
-            }
         }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col items-center justify-center p-4">
 
     <!-- Header -->
-    <header class="mb-6 text-center" role="banner">
+    <div class="mb-6 text-center">
         <h1 class="text-2xl font-black tracking-tight text-blue-600 flex items-center justify-center gap-2">
-            <i data-lucide="wind" class="w-7 h-7" aria-hidden="true"></i> 
-            <span>혹한기 신기지 마스터 가이드</span>
+            <i data-lucide="wind" class="w-7 h-7"></i> 혹한기 신기지 마스터 가이드
         </h1>
         <p class="text-slate-500 text-sm mt-1 font-medium italic">Master Naksi-daejang Edition (by Jeff)</p>
-    </header>
+    </div>
 
     <!-- Main Card Container -->
-    <main role="main" class="w-full max-w-sm flex flex-col gap-6">
-        <article 
-            id="card-container" 
-            class="relative w-full aspect-[4/5] rounded-[2.5rem] shadow-xl border-2 flex flex-col card-transition overflow-hidden"
-            aria-live="polite"
-            aria-atomic="true"
-        >
+    <div id="card-container" class="relative w-full max-w-sm min-h-[580px] rounded-[2.5rem] shadow-xl border-2 flex flex-col card-transition bg-white">
+        
+        <!-- Progress Bar (Top) -->
+        <div id="top-progress" class="w-full h-1 bg-black/5 rounded-t-[2.5rem] overflow-hidden">
+            <div id="progress-fill" class="h-full bg-blue-500 transition-all duration-500" style="width: 10%"></div>
+        </div>
+
+        <!-- Card Content Area -->
+        <div id="card-body" class="flex-1 px-8 py-6 flex flex-col items-center justify-center text-center">
+            <div id="icon-container" class="mb-4 p-4 bg-white rounded-3xl shadow-sm border border-slate-100">
+                <i id="card-icon" class="w-10 h-10"></i>
+            </div>
             
-            <!-- Progress Bar (Top) -->
-            <div id="top-progress" class="w-full h-1 bg-black/5" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="10">
-                <div id="progress-fill" class="h-full bg-blue-500 transition-all duration-500" style="width: 10%"></div>
-            </div>
+            <h2 id="card-title" class="text-xl font-black mb-1"></h2>
+            <p id="card-subtitle" class="text-slate-600 font-bold mb-5 text-sm"></p>
+            
+            <div id="card-items" class="w-full space-y-2"></div>
+        </div>
 
-            <!-- Card Content Area -->
-            <div id="card-body" class="flex-1 px-8 py-6 flex flex-col items-center justify-center text-center" tabindex="0" role="button" aria-label="다음 카드로 이동">
-                <div id="icon-container" class="mb-4 p-4 bg-white rounded-3xl shadow-sm border border-white" aria-hidden="true">
-                    <i id="card-icon" class="w-10 h-10"></i>
+        <!-- Navigation Controls (Bottom) -->
+        <div class="px-8 pb-8 pt-2 flex flex-col items-center gap-4 relative z-50">
+            
+            <!-- Bottom Pagination Dots -->
+            <div id="bottom-dots" class="flex gap-1.5 mb-1 h-2 items-center"></div>
+
+            <div class="w-full flex justify-between items-center">
+                <button id="prev-btn" class="nav-btn p-4 bg-white/90 rounded-full shadow-lg border border-slate-200">
+                    <i data-lucide="chevron-left" class="text-slate-800 w-6 h-6"></i>
+                </button>
+                
+                <div class="flex flex-col items-center">
+                    <span id="page-number" class="text-lg font-black text-slate-800">1</span>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">Card</span>
                 </div>
-                
-                <h2 id="card-title" class="text-xl font-black mb-1"></h2>
-                <p id="card-subtitle" class="text-slate-600 font-bold mb-5 text-sm"></p>
-                
-                <div id="card-items" class="w-full space-y-2"></div>
-            </div>
 
-            <!-- Bottom Pagination Dots (Inside Card) -->
-            <div class="px-8 pb-6 pt-2 flex justify-center">
-                <div id="bottom-dots" class="flex gap-1.5" role="tablist" aria-label="페이지 표시"></div>
-            </div>
-        </article>
-
-        <!-- Navigation Controls (Outside Card) -->
-        <nav class="flex flex-col items-center gap-3" aria-label="카드 네비게이션">
-            <!-- Page Number Display -->
-            <div class="flex flex-col items-center" aria-live="polite">
-                <span id="page-number" class="text-lg font-black text-slate-800">1</span>
-                <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest leading-none">of 10</span>
-            </div>
-
-            <!-- Text Navigation Buttons -->
-            <div class="w-full flex justify-center items-center gap-3">
-                <button 
-                    id="prev-btn" 
-                    class="nav-btn px-6 py-3 bg-white/90 rounded-xl shadow-md border border-slate-200 hover:bg-slate-50 active:bg-slate-100 transition-all"
-                    aria-label="이전 카드"
-                    type="button"
-                >
-                    <span class="text-sm font-bold text-slate-700 uppercase tracking-wider">Previous</span>
-                </button>
-                
-                <span class="text-slate-300 font-bold text-lg">|</span>
-
-                <button 
-                    id="next-btn" 
-                    class="nav-btn px-6 py-3 bg-white/90 rounded-xl shadow-md border border-slate-200 hover:bg-slate-50 active:bg-slate-100 transition-all"
-                    aria-label="다음 카드"
-                    type="button"
-                >
-                    <span class="text-sm font-bold text-slate-700 uppercase tracking-wider">Next</span>
+                <button id="next-btn" class="nav-btn p-4 bg-white/90 rounded-full shadow-lg border border-slate-200">
+                    <i data-lucide="chevron-right" class="text-slate-800 w-6 h-6"></i>
                 </button>
             </div>
-        </nav>
+        </div>
+    </div>
 
-        <!-- Final Alert -->
-        <aside 
-            id="final-alert" 
-            class="mt-6 p-4 bg-emerald-600 text-white rounded-2xl w-full shadow-lg transition-all transform scale-0 opacity-0 text-center"
-            role="alert"
-            aria-live="assertive"
-        >
-            <p class="text-xs font-bold leading-relaxed">
-                혹한기 신기지는 테크닉 싸움입니다.<br>작게, 느리게, 자주 바꾸세요!
-            </p>
-        </aside>
-    </main>
+    <!-- Final Alert -->
+    <div id="final-alert" class="mt-4 p-4 bg-emerald-600 text-white rounded-2xl max-w-sm w-full shadow-lg transition-all transform scale-0 opacity-0 text-center">
+        <p class="text-xs font-bold leading-relaxed">
+            혹한기 신기지는 테크닉 싸움입니다.<br>작게, 느리게, 자주 바꾸세요!
+        </p>
+    </div>
 
     <!-- Footer Help -->
-    <footer class="mt-8 text-center px-6" role="contentinfo">
-        <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] leading-relaxed mb-2">
+    <div class="mt-6 text-center px-6">
+        <p class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] leading-relaxed mb-1">
             Strategy: SMALL • SLOW • ROTATE • TIMING
         </p>
-        <p class="text-[9px] text-slate-300 font-medium italic">카드, Previous/Next 버튼, 키보드(←/→/Space)로 이동 | 스와이프 지원</p>
-    </footer>
+        <p class="text-[9px] text-slate-400 font-medium italic">카드나 화살표를 눌러 넘기세요</p>
+    </div>
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/lucide@latest"></script>
     <script>
-        // 카드 데이터
         const cards = [
             {
                 title: "01. 혹한기 상황 인식",
@@ -338,14 +228,9 @@
             }
         ];
 
-        // 상태 관리
         let currentIdx = 0;
-        let direction = 'next';
-        let touchStartX = 0;
-        let touchEndX = 0;
 
-        // 카드 렌더링
-        const renderCard = (animate = true) => {
+        const renderCard = () => {
             const card = cards[currentIdx];
             
             const container = document.getElementById('card-container');
@@ -356,21 +241,11 @@
             const pageNum = document.getElementById('page-number');
             const bottomDots = document.getElementById('bottom-dots');
             const progressFill = document.getElementById('progress-fill');
-            const progressBar = document.getElementById('top-progress');
             const finalAlert = document.getElementById('final-alert');
 
-            // 스타일 적용
             const [bgFrom, bgTo, border, text, iconColor] = card.style.split(' ');
-            container.className = `relative w-full aspect-[4/5] rounded-[2.5rem] shadow-xl border-2 flex flex-col card-transition overflow-hidden bg-gradient-to-br ${bgFrom} ${bgTo} ${border}`;
+            container.className = `relative w-full max-w-sm min-h-[580px] rounded-[2.5rem] shadow-xl border-2 flex flex-col card-transition overflow-hidden bg-gradient-to-br ${bgFrom} ${bgTo} ${border}`;
             
-            if (animate) {
-                container.classList.add(direction === 'next' ? 'slide-in-right' : 'slide-in-left');
-                setTimeout(() => {
-                    container.classList.remove('slide-in-right', 'slide-in-left');
-                }, 300);
-            }
-            
-            // 콘텐츠 업데이트
             title.innerText = card.title;
             title.className = `text-xl font-black mb-1 ${text}`;
             subtitle.innerText = `"${card.subtitle}"`;
@@ -388,78 +263,38 @@
 
             // 하단 도트 업데이트
             bottomDots.innerHTML = cards.map((_, i) => `
-                <div 
-                    class="h-1.5 rounded-full dot-transition ${i === currentIdx ? 'w-6 bg-slate-800' : 'w-1.5 bg-slate-400/50'}"
-                    role="tab"
-                    aria-selected="${i === currentIdx}"
-                    aria-label="카드 ${i + 1}"
-                ></div>
+                <div class="h-1.5 rounded-full dot-transition ${i === currentIdx ? 'w-6 bg-slate-800' : 'w-1.5 bg-slate-400/50'}"></div>
             `).join('');
 
-            // 진행바 업데이트
-            const progress = ((currentIdx + 1) / cards.length) * 100;
-            progressFill.style.width = `${progress}%`;
-            progressBar.setAttribute('aria-valuenow', Math.round(progress));
+            // 상단 진행바 업데이트
+            progressFill.style.width = `${((currentIdx + 1) / cards.length) * 100}%`;
 
-            // 마지막 카드 알림
             if (currentIdx === cards.length - 1) {
                 finalAlert.classList.remove('scale-0', 'opacity-0');
-                finalAlert.classList.add('scale-100', 'opacity-100');
-                setTimeout(() => {
-                    finalAlert.classList.add('animate-bounce');
-                }, 100);
+                finalAlert.classList.add('scale-100', 'opacity-100', 'animate-bounce');
             } else {
                 finalAlert.classList.add('scale-0', 'opacity-0');
                 finalAlert.classList.remove('scale-100', 'opacity-100', 'animate-bounce');
             }
 
-            // 아이콘 렌더링
             if (window.lucide) {
                 lucide.createIcons();
             }
         };
 
-        // 네비게이션 함수
         const goNext = () => {
-            direction = 'next';
             currentIdx = (currentIdx + 1) % cards.length;
             renderCard();
         };
 
         const goPrev = () => {
-            direction = 'prev';
             currentIdx = (currentIdx - 1 + cards.length) % cards.length;
             renderCard();
         };
 
-        // 터치/스와이프 핸들러
-        const handleTouchStart = (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        };
-
-        const handleTouchEnd = (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        };
-
-        const handleSwipe = () => {
-            const swipeThreshold = 50;
-            const diff = touchStartX - touchEndX;
-            
-            if (Math.abs(diff) > swipeThreshold) {
-                if (diff > 0) {
-                    goNext(); // 왼쪽 스와이프 -> 다음
-                } else {
-                    goPrev(); // 오른쪽 스와이프 -> 이전
-                }
-            }
-        };
-
-        // 초기화
         const init = () => {
-            renderCard(false);
+            renderCard();
 
-            // 버튼 이벤트
             document.getElementById('next-btn').addEventListener('click', (e) => {
                 e.stopPropagation();
                 goNext();
@@ -470,40 +305,16 @@
                 goPrev();
             });
 
-            // 카드 클릭
             document.getElementById('card-body').addEventListener('click', () => {
                 goNext();
             });
 
-            // 터치 이벤트
-            const cardBody = document.getElementById('card-body');
-            cardBody.addEventListener('touchstart', handleTouchStart, { passive: true });
-            cardBody.addEventListener('touchend', handleTouchEnd, { passive: true });
-
-            // 키보드 이벤트
             window.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight' || e.key === ' ') {
-                    e.preventDefault();
-                    goNext();
-                }
-                if (e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    goPrev();
-                }
-                if (e.key === 'Home') {
-                    e.preventDefault();
-                    currentIdx = 0;
-                    renderCard();
-                }
-                if (e.key === 'End') {
-                    e.preventDefault();
-                    currentIdx = cards.length - 1;
-                    renderCard();
-                }
+                if (e.key === 'ArrowRight' || e.key === ' ') goNext();
+                if (e.key === 'ArrowLeft') goPrev();
             });
         };
 
-        // DOM 준비 완료 후 초기화
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', init);
         } else {
