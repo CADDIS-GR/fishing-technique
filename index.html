@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly Fishing Techniques Archive | 플라이 낚시 테크닉 아카이브</title>
+    <meta name="description" content="관리형 낚시터 플라이낚시 테크닉 모음 - 인디케이터 님핑, 풀싱킹 라인, 계절별 전략">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .technique-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .technique-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        .badge {
+            transition: all 0.2s ease;
+        }
+        .technique-card:hover .badge {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
+    
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-slate-200">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-3xl font-black text-blue-600 flex items-center gap-3">
+                        🎣 Fly Fishing Techniques Archive
+                    </h1>
+                    <p class="text-slate-600 mt-2 font-medium">플라이 낚시 기법을 체계적으로 정리한 아카이브입니다. 관리형 낚시터(저수지)에서의 실전 경험을 바탕으로 다양한 기법들을 문서화하고 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-12">
+        
+        <!-- Stats Bar -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                <div class="text-4xl font-black text-blue-600">7</div>
+                <div class="text-sm text-slate-600 font-bold mt-1">Techniques</div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                <div class="text-4xl font-black text-emerald-600">5</div>
+                <div class="text-sm text-slate-600 font-bold mt-1">Categories</div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                <div class="text-4xl font-black text-purple-600">2025</div>
+                <div class="text-sm text-slate-600 font-bold mt-1">Season</div>
+            </div>
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-100">
+                <div class="text-4xl font-black text-orange-600">100%</div>
+                <div class="text-sm text-slate-600 font-bold mt-1">Practical</div>
+            </div>
+        </div>
+
+        <!-- Category: 낚시터 포인트 맵 (NEW!) -->
+        <section class="mb-16">
+            <div class="flex items-center gap-3 mb-6">
+                <h2 class="text-2xl font-black text-slate-800">🗺️ 낚시터 포인트 맵</h2>
+                <span class="px-3 py-1 bg-red-100 text-red-600 text-xs font-bold rounded-full">NEW!</span>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Shingi Fishing Spot Map -->
+                <a href="spot-maps/shingi-fishing-spot.html" class="technique-card block bg-gradient-to-br from-cyan-50 to-blue-100 rounded-2xl p-6 shadow-lg border-2 border-cyan-200 group">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge px-3 py-1 bg-cyan-600 text-white text-xs font-bold rounded-full uppercase">Spot Map</span>
+                        <span class="text-3xl">🗺️</span>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-800 mb-2 group-hover:text-cyan-600 transition-colors">
+                        신기낚시터 포인트 맵
+                    </h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        6개 핵심 포인트별 수심, 특징, 시간대별 공략법을 인터랙티브 맵으로 확인하세요. 혹한기 송어 공략에 최적화된 실전 정보.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-white/70 text-slate-700 text-xs font-bold rounded-lg">#신기낚시터</span>
+                        <span class="px-2 py-1 bg-white/70 text-slate-700 text-xs font-bold rounded-lg">#포인트맵</span>
+                        <span class="px-2 py-1 bg-white/70 text-slate-700 text-xs font-bold rounded-lg">#수심정보</span>
+                        <span class="px-2 py-1 bg-white/70 text-slate-700 text-xs font-bold rounded-lg">#시간대공략</span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-cyan-200 flex items-center justify-between text-xs">
+                        <span class="text-slate-600 font-bold">🎯 인터랙티브 맵</span>
+                        <span class="text-cyan-600 font-black group-hover:translate-x-1 transition-transform inline-block">자세히 보기 →</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Category: 계절별 전략 -->
+        <section class="mb-16">
+            <div class="flex items-center gap-3 mb-6">
+                <h2 class="text-2xl font-black text-slate-800">❄️ 계절별 전략</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Winter Singiji Guide -->
+                <a href="techniques/Winter_Singiji_Master_Guide.html" class="technique-card block bg-gradient-to-br from-blue-50 to-indigo-100 rounded-2xl p-6 shadow-lg border-2 border-blue-200 group">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-full uppercase">Seasonal</span>
+                        <span class="text-3xl">❄️</span>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-800 mb-2 group-hover:text-blue-600 transition-colors">
+                        혹한기 신기지 마스터 가이드
+                    </h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        기온 -10℃ 극한 환경에서의 실전 공략법. 작게, 느리게, 자주 바꾸는 테크닉 중심 전략. 10개 카드로 구성된 인터랙티브 가이드.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-white/70 text-slate-700 text-xs font-bold rounded-lg">#혹한기</span>
+                        <span class="px-2 py-1 bg-white/70 text-slate-700 text-xs font-bold rounded-lg">#신기지</span>
+                        <span class="px-2 py-1 bg-white/70 text-slate-700 text-xs font-bold rounded-lg">#님핑</span>
+                        <span class="px-2 py-1 bg-white/70 text-slate-700 text-xs font-bold rounded-lg">#저활성</span>
+                    </div>
+                    <div class="mt-4 pt-4 border-t border-blue-200 flex items-center justify-between text-xs">
+                        <span class="text-slate-600 font-bold">🎯 인터랙티브 카드</span>
+                        <span class="text-blue-600 font-black group-hover:translate-x-1 transition-transform inline-block">자세히 보기 →</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Category: 인디케이터 님핑 -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-black text-slate-800 mb-6">🎯 인디케이터 님핑</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Naked Fishing With Indicator -->
+                <a href="techniques/Naked_Fishing_With_Indicator.html" class="technique-card block bg-white rounded-2xl p-6 shadow-lg border border-slate-200 group">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge px-3 py-1 bg-emerald-600 text-white text-xs font-bold rounded-full uppercase">Nymphing</span>
+                        <span class="text-3xl">🎯</span>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-800 mb-2 group-hover:text-emerald-600 transition-colors">
+                        네이키드 피싱 with 인디케이터
+                    </h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        인디케이터를 활용한 님핑의 기본. 수심 조절과 입질 감지의 핵심 테크닉을 다룹니다.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#인디케이터</span>
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#님핑</span>
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#기본기</span>
+                    </div>
+                </a>
+
+                <!-- Multi-Split Indicator Nymphing -->
+                <a href="techniques/Multi-Split_Indicator_Nymphing.html" class="technique-card block bg-white rounded-2xl p-6 shadow-lg border border-slate-200 group">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge px-3 py-1 bg-emerald-600 text-white text-xs font-bold rounded-full uppercase">Nymphing</span>
+                        <span class="text-3xl">🔀</span>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-800 mb-2 group-hover:text-emerald-600 transition-colors">
+                        멀티 스플릿 인디케이터 님핑
+                    </h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        여러 개의 플라이를 동시에 운용하는 고급 테크닉. 수심대별 공략이 가능합니다.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#멀티플라이</span>
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#고급기법</span>
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#전층공략</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Category: 이머저 & 서피스 -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-black text-slate-800 mb-6">🦟 이머저 & 서피스</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Naked Fishing Emerger Tip -->
+                <a href="techniques/Naked_Fishing_Emerger_Tip.html" class="technique-card block bg-white rounded-2xl p-6 shadow-lg border border-slate-200 group">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge px-3 py-1 bg-amber-600 text-white text-xs font-bold rounded-full uppercase">Emerger</span>
+                        <span class="text-3xl">🦟</span>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-800 mb-2 group-hover:text-amber-600 transition-colors">
+                        네이키드 피싱 이머저 팁
+                    </h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        수면 직하에서의 이머저 패턴 운용. 부화 타이밍을 노리는 전문 테크닉입니다.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#이머저</span>
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#부화</span>
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#서피스</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Category: 풀싱킹 라인 -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-black text-slate-800 mb-6">⚓ 풀싱킹 라인</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Full Sinking Line Bottom Retrieval -->
+                <a href="techniques/Full_Sinking_Line_Bottom_Retrieval.html" class="technique-card block bg-white rounded-2xl p-6 shadow-lg border border-slate-200 group">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge px-3 py-1 bg-indigo-600 text-white text-xs font-bold rounded-full uppercase">Sinking Line</span>
+                        <span class="text-3xl">⚓</span>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-800 mb-2 group-hover:text-indigo-600 transition-colors">
+                        풀싱킹 라인 바닥 리트리벌
+                    </h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        심층 공략의 핵심. 풀싱킹 라인으로 바닥층을 효과적으로 공략하는 방법을 다룹니다.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#풀싱킹</span>
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#심층</span>
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#리트리벌</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <!-- Category: 전략 & 전술 -->
+        <section class="mb-16">
+            <h2 class="text-2xl font-black text-slate-800 mb-6">🧭 전략 & 전술</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Stillwater Tactical Matrix -->
+                <a href="techniques/Stillwater_Tactical_Matrix.html" class="technique-card block bg-white rounded-2xl p-6 shadow-lg border border-slate-200 group">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="badge px-3 py-1 bg-purple-600 text-white text-xs font-bold rounded-full uppercase">Tactical</span>
+                        <span class="text-3xl">🧭</span>
+                    </div>
+                    <h3 class="text-xl font-black text-slate-800 mb-2 group-hover:text-purple-600 transition-colors">
+                        정수지 전술 매트릭스
+                    </h3>
+                    <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+                        저수지 환경에서의 종합 전략. 상황별 판단과 대응 방법을 체계화한 가이드입니다.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#전략</span>
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#정수지</span>
+                        <span class="px-2 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-lg">#종합</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-white py-12 mt-20">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-black mb-4">🎣 Fly Fishing Techniques</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        관리형 낚시터(저수지)에서의 실전 경험을 바탕으로 다양한 기법들을 문서화하고 있습니다.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">수록된 기법</h4>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li>• 낚시터 포인트 맵 (1)</li>
+                        <li>• 계절별 전략 (1)</li>
+                        <li>• 인디케이터 님핑 (2)</li>
+                        <li>• 이머저 & 서피스 (1)</li>
+                        <li>• 풀싱킹 라인 (1)</li>
+                        <li>• 전략 & 전술 (1)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Links</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="https://github.com/CADDIS-GR/fishing-technique" class="text-blue-400 hover:text-blue-300 transition-colors">GitHub Repository</a></li>
+                        <li><a href="https://caddis-gr.github.io/fly-tying-archive/" class="text-blue-400 hover:text-blue-300 transition-colors">Fly Tying Archive</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-500 text-sm">
+                <p>© 2025 CADDIS-GR. Made with ❤️ by 낚시대장 (Jeff)</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
