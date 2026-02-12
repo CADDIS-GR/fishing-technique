@@ -3,8 +3,8 @@
 > 플라이 낚시 기법을 체계적으로 정리한 아카이브입니다. 관리형 낚시터(저수지)에서의 실전 경험을 바탕으로 다양한 기법들을 문서화하고 있습니다.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://caddis-gr.github.io/fishing-technique/)
-[![Techniques](https://img.shields.io/badge/Techniques-8-blue)](#)
-[![Season](https://img.shields.io/badge/Season-2025-purple)](#)
+[![Techniques](https://img.shields.io/badge/Techniques-9-blue)](#)
+[![Season](https://img.shields.io/badge/Season-2026-purple)](#)
 
 ## 📋 프로젝트 소개
 
@@ -19,11 +19,11 @@
 - **지속적 업데이트**: 새로운 기법과 경험을 계속 추가
 - **커뮤니티 공유**: 플라이 낚시 커뮤니티와 지식 공유
 
-## 🗂️ 수록된 기법 (총 8개)
+## 🗂️ 수록된 기법 (총 9개)
 
-### 🗺️ 낚시터 포인트 맵 (1) `NEW!`
+### 🗺️ 낚시터 포인트 맵 (1)
 
-#### [신기지낚시터 포인트 맵](https://caddis-gr.github.io/fishing-technique/spot-maps/shingi-fishing-spot.html) `NEW!`
+#### [신기지낚시터 포인트 맵](https://caddis-gr.github.io/fishing-technique/spot-maps/shingi-fishing-spot.html)
 - **특징**: 인터랙티브 맵 형식
 - **내용**: 6개 핵심 포인트별 수심, 특징, 시간대별 공략법
 - **핵심 전략**: 혹한기 송어 공략에 최적화된 실전 정보
@@ -56,7 +56,7 @@
 
 ---
 
-### 🎯 인디케이터 님핑 (2)
+### 🎯 인디케이터 님핑 (3)
 
 #### [네이키드 피싱 with 인디케이터](https://caddis-gr.github.io/fishing-technique/techniques/Naked_Fishing_With_Indicator.html)
 - **특징**: 인디케이터 님핑의 기본 원리
@@ -69,6 +69,18 @@
 - **내용**: 수심대별 공략이 가능한 고급 테크닉
 - **적용 환경**: 수심 변화가 큰 저수지
 - **태그**: `#멀티플라이` `#고급기법` `#전층공략`
+
+#### [마이크로 님핑 (Micro Nymphing)](https://caddis-gr.github.io/fishing-technique/techniques/Micro_Nymphing_Guide.html) `NEW!`
+- **특징**: 인터랙티브 가이드 (레이더 차트 + 장비 탭 + 3단계 프로세스)
+- **내용**: "작게, 길고 가늘게, 천천히 느리게!" 혹한기 극도로 예민해진 송어를 유혹하는 섬세한 기술의 정점
+- **핵심 전략**: Small × Long & Thin × Slow 3대 원칙
+- **포함 주제**:
+  - 테크닉 특성 레이더 차트 분석 (Micro vs Standard 비교)
+  - 추천 장비 시스템 (로드·라인·리더·인디케이터)
+  - 타겟 플라이 패턴 4종 (라이트박스 이미지 뷰어 포함)
+  - 운영 테크닉 3단계 프로세스 (캐스팅→슬로우 스위밍→입질 파악)
+- **적용 환경**: 혹한기, 저활성 관리형 저수지
+- **태그**: `#마이크로님핑` `#혹한기` `#피네스` `#소형플라이`
 
 ---
 
@@ -100,7 +112,7 @@
 - **적용 범위**: 포인트 선정, 패턴 선택, 테크닉 조합
 - **태그**: `#전략` `#정수지` `#종합`
 
-#### [하이브리드 드리프트 피싱](https://caddis-gr.github.io/fishing-technique/techniques/Hybrid_Drift_Fishing.html) `NEW!`
+#### [하이브리드 드리프트 피싱](https://caddis-gr.github.io/fishing-technique/techniques/Hybrid_Drift_Fishing.html)
 - **특징**: 인터랙티브 3단계 실전 프로세스
 - **내용**: Airflo Shorty + 롱 리더 시스템으로 6m 심층을 공략하는 타이트라인 전략
 - **핵심 전략**: 시스템 설계, 감도 분석, 3단계 실전 프로세스
@@ -137,6 +149,7 @@ cd fishing-technique
 - **HTML5**: 시맨틱 마크업
 - **Tailwind CSS**: 모던한 스타일링
 - **Vanilla JavaScript**: 인터랙티브 기능
+- **Chart.js**: 레이더 차트 시각화
 - **GitHub Pages**: 호스팅
 - **Lucide Icons**: 아이콘 라이브러리
 
@@ -150,12 +163,14 @@ fishing-technique/
 │   ├── Winter_Singiji_Master_Guide.html
 │   ├── Naked_Fishing_With_Indicator.html
 │   ├── Multi-Split_Indicator_Nymphing.html
+│   ├── Micro_Nymphing_Guide.html
 │   ├── Naked_Fishing_Emerger_Tip.html
 │   ├── Full_Sinking_Line_Bottom_Retrieval.html
-│   └── Stillwater_Tactical_Matrix.html
+│   ├── Stillwater_Tactical_Matrix.html
+│   └── Hybrid_Drift_Fishing.html
 ├── spot-maps/              # 낚시터 포인트 맵
 │   └── shingi-fishing-spot.html
-└── images/                 # 이미지 리소스 (필요시)
+└── images/                 # 이미지 리소스
 ```
 
 ## 🎨 주요 특징
@@ -171,17 +186,21 @@ fishing-technique/
 - 수심·특징·추천 기법 한눈에 확인
 - 시간대별 공략 전략 연동
 
-### 3. 반응형 디자인
+### 3. 데이터 시각화
+- Chart.js 레이더 차트로 기법 특성 비교
+- 라이트박스 이미지 뷰어 (플라이 패턴 확대)
+
+### 4. 반응형 디자인
 - 모바일, 태블릿, 데스크톱 최적화
 - 터치 친화적 인터페이스
 - 다크모드 고려 (일부 가이드)
 
-### 4. 접근성 (Accessibility)
+### 5. 접근성 (Accessibility)
 - ARIA 레이블
 - 키보드 네비게이션
 - 스크린 리더 지원
 
-### 5. 카테고리 시스템
+### 6. 카테고리 시스템
 - 색상 코드로 시각적 구분
 - 태그 기반 분류
 - NEW 배지로 최신 콘텐츠 표시
@@ -190,9 +209,9 @@ fishing-technique/
 
 | 항목 | 수량 |
 |------|------|
-| 총 기법 수 | 8개 |
+| 총 기법 수 | 9개 |
 | 카테고리 | 5개 |
-| 시즌 | 2025 |
+| 시즌 | 2026 |
 | 실전 적용률 | 100% |
 
 ## 🔗 관련 프로젝트
@@ -202,6 +221,14 @@ fishing-technique/
 - **[Fishing Gear](https://github.com/CADDIS-GR/fishing-gear)**: 낚시 장비 정보
 
 ## 📝 업데이트 이력
+
+### 2026-02-13
+- 🔬 **마이크로 님핑 (Micro Nymphing) 가이드** 추가 `NEW!`
+  - 레이더 차트 기반 기법 특성 분석
+  - 추천 장비 시스템 인터랙티브 탭 (로드·라인·리더·인디케이터)
+  - 타겟 플라이 패턴 4종 + 라이트박스 이미지 뷰어
+  - 운영 테크닉 3단계 프로세스
+- 📊 통계 업데이트 (기법 9개, 시즌 2026)
 
 ### 2025-02-xx
 - 🗺️ **신기지낚시터 포인트 맵** 추가 (인터랙티브 맵 형식)
@@ -282,6 +309,6 @@ A. 저장소를 클론하거나 HTML 파일을 다운로드하여 오프라인�
 
 **[🌐 웹사이트 방문하기](https://caddis-gr.github.io/fishing-technique/)** | **[📚 Fly Tying Archive](https://caddis-gr.github.io/fly-tying-archive/)** | **[⭐ Star this repo](https://github.com/CADDIS-GR/fishing-technique)**
 
-Made with ❤️ by 낚시대장 (Jeff) | © 2025 CADDIS-GR
+Made with ❤️ by 낚시대장 (Jeff) | © 2026 CADDIS-GR
 
 </div>
