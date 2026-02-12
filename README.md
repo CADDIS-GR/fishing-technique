@@ -3,7 +3,7 @@
 > 플라이 낚시 기법을 체계적으로 정리한 아카이브입니다. 관리형 낚시터(저수지)에서의 실전 경험을 바탕으로 다양한 기법들을 문서화하고 있습니다.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://caddis-gr.github.io/fishing-technique/)
-[![Techniques](https://img.shields.io/badge/Techniques-7-blue)](#)
+[![Techniques](https://img.shields.io/badge/Techniques-8-blue)](#)
 [![Season](https://img.shields.io/badge/Season-2025-purple)](#)
 
 ## 📋 프로젝트 소개
@@ -19,7 +19,7 @@
 - **지속적 업데이트**: 새로운 기법과 경험을 계속 추가
 - **커뮤니티 공유**: 플라이 낚시 커뮤니티와 지식 공유
 
-## 🗂️ 수록된 기법 (총 7개)
+## 🗂️ 수록된 기법 (총 8개)
 
 ### 🗺️ 낚시터 포인트 맵 (1) `NEW!`
 
@@ -92,13 +92,20 @@
 
 ---
 
-### 🧭 전략 & 전술 (1)
+### 🧭 전략 & 전술 (2)
 
 #### [정수지 전술 매트릭스](https://caddis-gr.github.io/fishing-technique/techniques/Stillwater_Tactical_Matrix.html)
 - **특징**: 저수지 환경 종합 전략
 - **내용**: 상황별 판단과 대응 방법 체계화
 - **적용 범위**: 포인트 선정, 패턴 선택, 테크닉 조합
 - **태그**: `#전략` `#정수지` `#종합`
+
+#### [하이브리드 드리프트 피싱](https://caddis-gr.github.io/fishing-technique/techniques/Hybrid_Drift_Fishing.html) `NEW!`
+- **특징**: 인터랙티브 3단계 실전 프로세스
+- **내용**: Airflo Shorty + 롱 리더 시스템으로 6m 심층을 공략하는 타이트라인 전략
+- **핵심 전략**: 시스템 설계, 감도 분석, 3단계 실전 프로세스
+- **적용 환경**: 깊은 수심(6m+), 저수온기 심층 공략
+- **태그**: `#하이브리드` `#심층공략` `#타이트라인`
 
 ---
 
@@ -183,7 +190,7 @@ fishing-technique/
 
 | 항목 | 수량 |
 |------|------|
-| 총 기법 수 | 7개 |
+| 총 기법 수 | 8개 |
 | 카테고리 | 5개 |
 | 시즌 | 2025 |
 | 실전 적용률 | 100% |
@@ -198,8 +205,9 @@ fishing-technique/
 
 ### 2025-02-xx
 - 🗺️ **신기지낚시터 포인트 맵** 추가 (인터랙티브 맵 형식)
+- 🎯 **하이브리드 드리프트 피싱** 추가 (Airflo Shorty + 롱 리더 타이트라인 전략)
 - 📁 `spot-maps/` 디렉토리 신설
-- 📊 통계 업데이트 (기법 7개, 카테고리 5개)
+- 📊 통계 업데이트 (기법 8개, 카테고리 5개)
 
 ### 2025-01-26
 - ❄️ **혹한기 신기지 마스터 가이드** 추가 (인터랙티브 10카드 형식)
