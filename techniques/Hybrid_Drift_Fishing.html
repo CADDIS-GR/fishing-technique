@@ -61,7 +61,7 @@
             <!-- Key Metrics Dashboard -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
                 <div class="bg-stone-100 p-4 rounded-lg text-center">
-                    <div class="text-2xl font-bold text-stone-700">~50ft</div>
+                    <div class="text-2xl font-bold text-stone-700">~52ft</div>
                     <div class="text-xs text-stone-500 uppercase mt-1">총 시스템 길이</div>
                 </div>
                 <div class="bg-stone-100 p-4 rounded-lg text-center">
@@ -103,7 +103,7 @@
             <div class="mb-6">
                 <h2 class="text-2xl font-bold text-stone-800 border-l-4 border-amber-600 pl-4 mb-2">1. 시스템 설계 (System Blueprint)</h2>
                 <p class="text-stone-600 leading-relaxed">
-                    이 시스템은 총 50ft에 달하는 긴 구성을 통해 플라이 라인의 무게 저항을 제거합니다. 아래의 각 구성 요소를 클릭하여 6m 수심 공략을 위한 각각의 역할과 운용 상태를 확인해 보세요.
+                    루어낚시의 텐션폴은 0.1g 스푼처럼 극단적으로 가벼운 루어로 느린 낙하 중 감도를 극대화합니다. 이 시스템은 같은 철학을 플라이낚시에 적용합니다. 총 52ft의 구성으로 수면 위 드래그와 수중 저항을 제거하여, <span class="font-semibold text-stone-800">무거운 앵커 플라이 없이도 가벼운 플라이가 시간을 들여 6m 바닥까지 도달할 수 있는 환경</span>을 만들어 줍니다. 아래의 각 구성 요소를 클릭하여 역할을 확인해 보세요.
                 </p>
             </div>
 
@@ -114,7 +114,7 @@
                     
                     <!-- Shorty Node -->
                     <div onclick="showPart('shorty')" class="rig-node cursor-pointer w-full p-3 bg-stone-800 text-stone-100 rounded text-center text-sm font-semibold hover:bg-stone-700 transition-colors">
-                        ① Airflo Shorty (20ft)
+                        ① Airflo Shorty (22ft)
                     </div>
                     
                     <div class="h-8 w-0.5 bg-stone-300"></div>
@@ -169,6 +169,7 @@
                     <span class="w-3 h-3 bg-stone-800 inline-block rounded-full mr-2"></span>하이브리드 시스템
                     <span class="w-3 h-3 bg-stone-300 inline-block rounded-full mr-2 ml-4"></span>일반 라인
                 </div>
+                <p class="mt-3 text-xs text-stone-400 italic text-center">※ 위 차트는 실측 데이터가 아닌, 원리 이해를 위한 개념적 비교입니다.</p>
             </div>
         </section>
 
@@ -217,9 +218,10 @@
                     <div class="text-2xl mb-3">🪰</div>
                     <h3 class="font-bold text-stone-800 mb-2">패턴 선택의 기준</h3>
                     <p class="text-sm text-stone-600 leading-relaxed">
-                        6m 수심의 수압을 뚫고 빠르게 바닥에 도달해야 합니다. 
-                        <span class="font-semibold text-amber-700">고비중 지그 님프</span>나 
-                        <span class="font-semibold text-amber-700">치로노미드 계열(#18-22)</span>을 사용하여 침강 속도를 확보하십시오.
+                        고비중 텅스텐으로 빠르게 가라앉히는 것이 아닙니다. 루어 텐션폴이 0.1g 스푼을 쓰듯, 
+                        <span class="font-semibold text-amber-700">가벼운 플라이(2.4mm 텅스텐 또는 브라스 비드)</span>를 
+                        선택하여 느린 낙하 중 감도를 극대화하는 것이 핵심입니다. 
+                        52ft 하이브리드 시스템이 저항을 제거해 주므로, 가벼운 플라이도 시간을 들여 6m 바닥에 도달할 수 있습니다.
                     </p>
                 </div>
 
@@ -260,7 +262,7 @@
         // Data Store
         const rigData = {
             'shorty': {
-                title: "① Airflo Euro Nymph Shorty (20ft)",
+                title: "① Airflo Euro Nymph Shorty (22ft)",
                 role: "무게 밸런스 & 전달자",
                 status: "공중 (Aerial)",
                 desc: "가이드 내에서 무게 밸런스를 잡아주고, 캐스팅 시 에너지를 리더로 전달하는 역할을 합니다. 6m 공략 시 수면에 닿지 않게 유지하여 불필요한 드래그를 방지합니다.",
@@ -277,18 +279,18 @@
                 title: "③ Fluorocarbon Tippet (10ft)",
                 role: "스텔스 & 침강 가속",
                 status: "바닥권 (Bottom 6m)",
-                desc: "고비중 카본 재질(5X/6X)로 6m 바닥까지 빠르게 채비를 내립니다. 마이크로 스위벨 도래를 사용하여 줄 꼬임을 막고 직선성을 유지하는 것이 핵심입니다.",
+                desc: "고비중 카본 재질(5X/6X)로 6m 바닥까지 빠르게 채비를 내립니다. 마이크로 스위벨 도래를 사용하여 줄 꼬임을 막고 직선성을 유지하는 것이 핵심입니다. 단, 실제 도달 수심은 라인 진입 각도에 따라 달라지므로, 가능한 수직에 가까운 각도를 유지해야 6m 바닥권에 도달할 수 있습니다.",
                 highlightColor: "border-blue-500"
             }
         };
 
         const techniquePhases = [
             {
-                title: "▣ 텐션폴 (Tension Fall) 방식의 안착",
+                title: "▣ 텐션폴 (Tension Fall) — 느린 낙하의 기술",
                 points: [
-                    "캐스팅 후 로드를 세워 라인을 팽팽하게 유지하며 낙하",
-                    "스위벨과 비드의 미세한 무게를 로드 끝으로 느끼는 것이 핵심",
-                    "바닥 도달 전까지의 '중간 입질(Falling Bite)' 정보 수집"
+                    "핵심 철학: 루어 텐션폴(0.1g 스푼)과 동일 — 가벼운 플라이를 느리게 떨어뜨리며 극도의 감도를 확보",
+                    "캐스팅 후 로드를 세워 라인의 긴장감(텐션)을 끊지 않고 유지하며, 플라이가 호를 그리듯 천천히 낙하",
+                    "빠른 침강이 목적이 아님 — 느린 낙하 과정 전체가 탐색 구간이며, 이 동안 손끝으로 전해지는 미세한 무게 변화와 폴링 바이트(Falling Bite)를 감지"
                 ],
                 icon: "⬇️"
             },
