@@ -3,13 +3,14 @@
 > 플라이 낚시 기법을 체계적으로 정리한 아카이브입니다. 관리형 낚시터(저수지)에서의 실전 경험을 바탕으로 다양한 기법들을 문서화하고 있습니다.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://caddis-gr.github.io/fishing-technique/)
-[![Techniques](https://img.shields.io/badge/Techniques-6-blue)](#)
+[![Techniques](https://img.shields.io/badge/Techniques-7-blue)](#)
 [![Season](https://img.shields.io/badge/Season-2025-purple)](#)
 
 ## 📋 프로젝트 소개
 
 이 프로젝트는 플라이 낚시의 다양한 기법들을 AI 도구를 활용하여 체계적으로 정리하고 공유하기 위해 만들어졌습니다. 각 기법은 실전에서 검증된 내용을 바탕으로 작성되었으며, 초보자부터 숙련자까지 참고할 수 있는 실질적인 정보를 담고 있습니다.
-https://caddis-gr.github.io/fishing-technique/
+
+🌐 **https://caddis-gr.github.io/fishing-technique/**
 
 ### 🎯 프로젝트 목표
 
@@ -18,11 +19,25 @@ https://caddis-gr.github.io/fishing-technique/
 - **지속적 업데이트**: 새로운 기법과 경험을 계속 추가
 - **커뮤니티 공유**: 플라이 낚시 커뮤니티와 지식 공유
 
-## 🗂️ 수록된 기법 (총 6개)
+## 🗂️ 수록된 기법 (총 7개)
+
+### 🗺️ 낚시터 포인트 맵 (1) `NEW!`
+
+#### [신기지낚시터 포인트 맵](https://caddis-gr.github.io/fishing-technique/spot-maps/shingi-fishing-spot.html) `NEW!`
+- **특징**: 인터랙티브 맵 형식
+- **내용**: 6개 핵심 포인트별 수심, 특징, 시간대별 공략법
+- **핵심 전략**: 혹한기 송어 공략에 최적화된 실전 정보
+- **포함 주제**:
+  - 6개 핵심 포인트 위치 및 수심 정보
+  - 시간대별 포인트 공략 전략
+  - 포인트별 추천 기법 및 플라이
+- **태그**: `#신기지낚시터` `#포인트맵` `#수심정보` `#시간대공략`
+
+---
 
 ### ❄️ 계절별 전략 (1)
 
-#### [혹한기 신기지 마스터 가이드](https://caddis-gr.github.io/fishing-technique/techniques/Winter_Singiji_Master_Guide.html) `NEW!`
+#### [혹한기 신기지 마스터 가이드](https://caddis-gr.github.io/fishing-technique/techniques/Winter_Singiji_Master_Guide.html)
 - **특징**: 10개 인터랙티브 카드 형식
 - **내용**: 기온 -10℃ 극한 환경에서의 실전 공략법
 - **핵심 전략**: 작게, 느리게, 자주 바꾸기
@@ -96,7 +111,11 @@ https://caddis-gr.github.io/fishing-technique/
 각 기법은 독립된 HTML 페이지로 구성되어 있어 직접 링크로 접근 가능합니다.
 
 ```
+# 기법 가이드
 https://caddis-gr.github.io/fishing-technique/techniques/[파일명].html
+
+# 포인트 맵
+https://caddis-gr.github.io/fishing-technique/spot-maps/[파일명].html
 ```
 
 ### 로컬 실행
@@ -119,15 +138,17 @@ cd fishing-technique
 ```
 fishing-technique/
 ├── index.html              # 메인 대문 페이지
-├── README.md              # 프로젝트 문서
-├── techniques/            # 기법 모음
+├── README.md               # 프로젝트 문서
+├── techniques/             # 기법 모음
 │   ├── Winter_Singiji_Master_Guide.html
 │   ├── Naked_Fishing_With_Indicator.html
 │   ├── Multi-Split_Indicator_Nymphing.html
 │   ├── Naked_Fishing_Emerger_Tip.html
 │   ├── Full_Sinking_Line_Bottom_Retrieval.html
 │   └── Stillwater_Tactical_Matrix.html
-└── images/                # 이미지 리소스 (필요시)
+├── spot-maps/              # 낚시터 포인트 맵
+│   └── shingi-fishing-spot.html
+└── images/                 # 이미지 리소스 (필요시)
 ```
 
 ## 🎨 주요 특징
@@ -138,17 +159,22 @@ fishing-technique/
 - 스와이프 제스처 지원
 - 키보드 단축키 (←/→/Space)
 
-### 2. 반응형 디자인
+### 2. 인터랙티브 포인트 맵
+- 낚시터 포인트별 상세 정보
+- 수심·특징·추천 기법 한눈에 확인
+- 시간대별 공략 전략 연동
+
+### 3. 반응형 디자인
 - 모바일, 태블릿, 데스크톱 최적화
 - 터치 친화적 인터페이스
 - 다크모드 고려 (일부 가이드)
 
-### 3. 접근성 (Accessibility)
+### 4. 접근성 (Accessibility)
 - ARIA 레이블
 - 키보드 네비게이션
 - 스크린 리더 지원
 
-### 4. 카테고리 시스템
+### 5. 카테고리 시스템
 - 색상 코드로 시각적 구분
 - 태그 기반 분류
 - NEW 배지로 최신 콘텐츠 표시
@@ -157,8 +183,8 @@ fishing-technique/
 
 | 항목 | 수량 |
 |------|------|
-| 총 기법 수 | 6개 |
-| 카테고리 | 4개 |
+| 총 기법 수 | 7개 |
+| 카테고리 | 5개 |
 | 시즌 | 2025 |
 | 실전 적용률 | 100% |
 
@@ -169,6 +195,11 @@ fishing-technique/
 - **[Fishing Gear](https://github.com/CADDIS-GR/fishing-gear)**: 낚시 장비 정보
 
 ## 📝 업데이트 이력
+
+### 2025-02-xx
+- 🗺️ **신기지낚시터 포인트 맵** 추가 (인터랙티브 맵 형식)
+- 📁 `spot-maps/` 디렉토리 신설
+- 📊 통계 업데이트 (기법 7개, 카테고리 5개)
 
 ### 2025-01-26
 - ❄️ **혹한기 신기지 마스터 가이드** 추가 (인터랙티브 10카드 형식)
