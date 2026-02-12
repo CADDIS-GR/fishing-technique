@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airflo Shorty 하이브리드 드리프트 가이드</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 350px; }
+        }
+        .rig-line {
+            transition: all 0.3s ease;
+        }
+        .rig-node:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .active-tab {
+            border-bottom: 2px solid #78716c; /* stone-500 */
+            color: #44403c; /* stone-700 */
+            font-weight: 700;
+        }
+        .inactive-tab {
+            color: #a8a29e; /* stone-400 */
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <!-- Chosen Palette: Warm Stone & Earth Tones (Stone-50 background, Stone-800 text, Amber/Olive accents) -->
+    <!-- Application Structure Plan:
+         1. Dashboard Header: Immediate tactical overview with key metrics (Length, Depth).
+         2. Interactive Rig Builder (Blueprint): A visual, vertical representation of the 50ft system. Users click segments (Shorty, Indicator, Tippet) to understand their specific role and status (Aerial/Submerged). This replaces a static list.
+         3. Physics of Depth (Analysis): A Chart.js visualization comparing 'Sensitivity vs. Depth' between this hybrid rig and standard rigs, justifying the 'Zero Sag' concept at 6m.
+         4. Tactical Execution Flow: A step-by-step interactive guide (Fall -> Creep -> Detection) that changes content dynamically, teaching the user the 'feel' of the technique.
+         5. Practical Survival Grid: A grid of cards for critical field tips (Wind, Patterns, Landing).
+         Why: This structure breaks down complex spatial and tactile concepts into visual, interactive chunks, making the 6m deep-water strategy easier to visualize and memorize.
+    -->
+    <!-- Visualization & Content Choices:
+         1. Rig Diagram: HTML/CSS vertical stack. Goal: Organize. Shows the hierarchy and connection of lines. Interaction: Click to reveal details.
+         2. Sensitivity Chart: Chart.js Line Chart. Goal: Inform/Compare. visually demonstrates why the Shorty/Mono system is superior at 6m depth compared to standard lines.
+         3. Phase Selector: Tabbed Interface. Goal: Change/Process. Breaks down the continuous action of fishing into distinct, learnable mental states.
+         4. Confirmation: NO SVG graphics used. NO Mermaid JS used.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-stone-50 text-stone-800 antialiased selection:bg-stone-200">
+
+    <!-- Header Section -->
+    <header class="bg-white border-b border-stone-200 py-8 shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <p class="text-stone-500 font-medium tracking-wider text-sm uppercase mb-2">관리형 저수지 6m 심해 공략</p>
+                <h1 class="text-3xl md:text-4xl font-bold text-stone-800 mb-4">하이브리드 드리프트 가이드</h1>
+                <p class="text-lg text-stone-600 max-w-2xl mx-auto">
+                    Airflo Euro Nymph Shorty와 롱 리더 시스템을 결합하여, 깊은 수심의 예민한 송어를 공략하는 타이트라인 전략의 핵심을 인터랙티브하게 탐구합니다.
+                </p>
+            </div>
+            
+            <!-- Key Metrics Dashboard -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                <div class="bg-stone-100 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-stone-700">~50ft</div>
+                    <div class="text-xs text-stone-500 uppercase mt-1">총 시스템 길이</div>
+                </div>
+                <div class="bg-stone-100 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-stone-700">6m</div>
+                    <div class="text-xs text-stone-500 uppercase mt-1">타겟 수심</div>
+                </div>
+                <div class="bg-stone-100 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-stone-700">20ft</div>
+                    <div class="text-xs text-stone-500 uppercase mt-1">인디케이터 구간</div>
+                </div>
+                <div class="bg-stone-100 p-4 rounded-lg text-center">
+                    <div class="text-2xl font-bold text-stone-700">Zero</div>
+                    <div class="text-xs text-stone-500 uppercase mt-1">드래그 목표</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+        <!-- Section 1: System Blueprint -->
+        <section id="system-blueprint">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-stone-800 border-l-4 border-amber-600 pl-4 mb-2">1. 시스템 설계 (System Blueprint)</h2>
+                <p class="text-stone-600 leading-relaxed">
+                    이 시스템은 총 50ft에 달하는 긴 구성을 통해 플라이 라인의 무게 저항을 제거합니다. 아래의 각 구성 요소를 클릭하여 6m 수심 공략을 위한 각각의 역할과 운용 상태를 확인해 보세요.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 items-start">
+                <!-- Interactive Diagram -->
+                <div class="w-full md:w-1/3 flex flex-col items-center space-y-2 bg-white p-6 rounded-xl shadow-sm border border-stone-200">
+                    <div class="text-xs font-bold text-stone-400 uppercase tracking-widest mb-4">Rod Tip Connection</div>
+                    
+                    <!-- Shorty Node -->
+                    <div onclick="showPart('shorty')" class="rig-node cursor-pointer w-full p-3 bg-stone-800 text-stone-100 rounded text-center text-sm font-semibold hover:bg-stone-700 transition-colors">
+                        ① Airflo Shorty (20ft)
+                    </div>
+                    
+                    <div class="h-8 w-0.5 bg-stone-300"></div>
+                    
+                    <!-- Indicator Node -->
+                    <div onclick="showPart('indicator')" class="rig-node cursor-pointer w-full p-3 bg-gradient-to-r from-pink-500 to-lime-400 text-white rounded text-center text-sm font-semibold shadow-md hover:opacity-90 transition-opacity">
+                        ② RIO Two-Tone (20ft)
+                    </div>
+                    
+                    <div class="h-8 w-0.5 bg-stone-300 relative">
+                        <div class="absolute top-1/2 left-4 text-xs text-stone-400 whitespace-nowrap">◀ 수면 (Water Surface)</div>
+                    </div>
+                    
+                    <!-- Swivel Node -->
+                    <div class="w-3 h-3 bg-stone-900 rounded-full ring-2 ring-stone-200"></div>
+                    
+                    <div class="h-8 w-0.5 bg-stone-300"></div>
+
+                    <!-- Tippet Node -->
+                    <div onclick="showPart('tippet')" class="rig-node cursor-pointer w-full p-3 bg-blue-50 text-blue-900 border border-blue-200 rounded text-center text-sm font-semibold hover:bg-blue-100 transition-colors">
+                        ③ Fluorocarbon (10ft)
+                    </div>
+
+                    <div class="text-xs font-bold text-stone-400 uppercase tracking-widest mt-4">Nymph (Bottom 6m)</div>
+                </div>
+
+                <!-- Detail Panel -->
+                <div class="w-full md:w-2/3 bg-stone-50 border border-stone-200 rounded-xl p-6 relative min-h-[300px]">
+                    <div id="detail-content" class="fade-in">
+                        <h3 class="text-xl font-bold text-stone-800 mb-2" id="detail-title">구성 요소를 선택하세요</h3>
+                        <p class="text-stone-500" id="detail-desc">왼쪽 다이어그램의 각 파트를 클릭하면 상세 스펙과 운용법이 표시됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Sensitivity Analysis -->
+        <section id="sensitivity-analysis" class="bg-white rounded-xl shadow-sm border border-stone-200 p-6 md:p-8">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-stone-800 border-l-4 border-amber-600 pl-4 mb-2">2. 깊이에 따른 감도 분석</h2>
+                <p class="text-stone-600 leading-relaxed">
+                    왜 6m 수심에서 일반 라인이 아닌 하이브리드 시스템이 필요할까요? 수심이 깊어질수록 일반 라인은 물의 저항(Drag)으로 인해 감도가 급격히 떨어지지만, 숏티와 롱 리더 조합은 'Zero Sag'에 가까운 직진성을 유지합니다.
+                </p>
+            </div>
+
+            <!-- Chart Container -->
+            <div class="flex flex-col items-center">
+                <div class="chart-container">
+                    <canvas id="sensitivityChart"></canvas>
+                </div>
+                <div class="mt-4 text-sm text-stone-500 text-center bg-stone-50 px-4 py-2 rounded-full inline-block">
+                    <span class="w-3 h-3 bg-stone-800 inline-block rounded-full mr-2"></span>하이브리드 시스템
+                    <span class="w-3 h-3 bg-stone-300 inline-block rounded-full mr-2 ml-4"></span>일반 라인
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Tactical Execution -->
+        <section id="tactical-execution">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-stone-800 border-l-4 border-amber-600 pl-4 mb-2">3. 주요 운용 테크닉 (Execution)</h2>
+                <p class="text-stone-600 leading-relaxed">
+                    설계된 채비를 100% 활용하기 위한 3단계 실전 프로세스입니다. 각 단계를 클릭하여 텐션폴부터 입질 파악까지의 '감각'을 익히십시오.
+                </p>
+            </div>
+
+            <!-- Phase Tabs -->
+            <div class="flex border-b border-stone-200 mb-6">
+                <button onclick="setPhase(0)" id="tab-0" class="flex-1 py-3 text-center text-sm md:text-base font-medium transition-colors active-tab">
+                    ① 텐션폴 (Tension Fall)
+                </button>
+                <button onclick="setPhase(1)" id="tab-1" class="flex-1 py-3 text-center text-sm md:text-base font-medium transition-colors inactive-tab">
+                    ② 마이크로 크리프 (Micro-Creep)
+                </button>
+                <button onclick="setPhase(2)" id="tab-2" class="flex-1 py-3 text-center text-sm md:text-base font-medium transition-colors inactive-tab">
+                    ③ 입질 감지 (Detection)
+                </button>
+            </div>
+
+            <!-- Content Area -->
+            <div class="bg-stone-50 rounded-xl p-6 border border-stone-200 min-h-[250px] relative">
+                <div id="phase-content" class="fade-in">
+                    <!-- Dynamic Content Loaded Here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Practical Tips -->
+        <section id="practical-tips">
+            <div class="mb-6">
+                <h2 class="text-2xl font-bold text-stone-800 border-l-4 border-amber-600 pl-4 mb-2">4. 실전 생존 가이드 (Practical Tips)</h2>
+                <p class="text-stone-600 leading-relaxed">
+                    현장에서 마주칠 수 있는 변수들에 대한 대응법입니다. 바람, 패턴, 그리고 랜딩에 대한 노하우를 확인하세요.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Tip Card 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 hover:shadow-md transition-shadow">
+                    <div class="text-2xl mb-3">🪰</div>
+                    <h3 class="font-bold text-stone-800 mb-2">패턴 선택의 기준</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        6m 수심의 수압을 뚫고 빠르게 바닥에 도달해야 합니다. 
+                        <span class="font-semibold text-amber-700">고비중 지그 님프</span>나 
+                        <span class="font-semibold text-amber-700">치로노미드 계열(#18-22)</span>을 사용하여 침강 속도를 확보하십시오.
+                    </p>
+                </div>
+
+                <!-- Tip Card 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 hover:shadow-md transition-shadow">
+                    <div class="text-2xl mb-3">🌬️</div>
+                    <h3 class="font-bold text-stone-800 mb-2">바람 대응법</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        롱 리더는 바람에 취약합니다. 바람이 강할 땐 
+                        <span class="font-semibold text-stone-800">로드 팁을 수면에 바짝 붙여</span> 
+                        공중에 노출된 인디케이터 라인을 최소화하여 텐션 손실을 막으세요.
+                    </p>
+                </div>
+
+                <!-- Tip Card 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-200 hover:shadow-md transition-shadow">
+                    <div class="text-2xl mb-3">🎣</div>
+                    <h3 class="font-bold text-stone-800 mb-2">랜딩 시 주의사항</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        30ft가 넘는 리더 시스템 때문에 릴링만으로는 고기를 뜰채에 담기 어렵습니다. 
+                        <span class="font-semibold text-stone-800">핸들링(Hand-lining)</span>으로 라인을 직접 당겨 
+                        랜딩하는 방식에 익숙해져야 합니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-stone-800 text-stone-400 py-8 mt-12">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <p class="text-sm">Airflo Shorty Hybrid Drift Guide • Based on Expert Analysis</p>
+            <p class="text-xs mt-2 text-stone-500">Designed for Educational Purposes</p>
+        </div>
+    </footer>
+
+    <script>
+        // Data Store
+        const rigData = {
+            'shorty': {
+                title: "① Airflo Euro Nymph Shorty (20ft)",
+                role: "무게 밸런스 & 전달자",
+                status: "공중 (Aerial)",
+                desc: "가이드 내에서 무게 밸런스를 잡아주고, 캐스팅 시 에너지를 리더로 전달하는 역할을 합니다. 6m 공략 시 수면에 닿지 않게 유지하여 불필요한 드래그를 방지합니다.",
+                highlightColor: "border-stone-800"
+            },
+            'indicator': {
+                title: "② RIO Two-Tone Indicator (20ft)",
+                role: "수심 측정 & 시각적 탐지기",
+                status: "10ft 수중 / 10ft 공중",
+                desc: "8인치 간격의 색상 변화(Pink/Chartreuse)를 통해 수심을 10cm 단위로 읽을 수 있습니다. 약 10ft는 물속에 잠겨 사선을 만들고, 나머지는 수면 위에서 입질을 시각화합니다.",
+                highlightColor: "border-pink-500"
+            },
+            'tippet': {
+                title: "③ Fluorocarbon Tippet (10ft)",
+                role: "스텔스 & 침강 가속",
+                status: "바닥권 (Bottom 6m)",
+                desc: "고비중 카본 재질(5X/6X)로 6m 바닥까지 빠르게 채비를 내립니다. 마이크로 스위벨 도래를 사용하여 줄 꼬임을 막고 직선성을 유지하는 것이 핵심입니다.",
+                highlightColor: "border-blue-500"
+            }
+        };
+
+        const techniquePhases = [
+            {
+                title: "▣ 텐션폴 (Tension Fall) 방식의 안착",
+                points: [
+                    "캐스팅 후 로드를 세워 라인을 팽팽하게 유지하며 낙하",
+                    "스위벨과 비드의 미세한 무게를 로드 끝으로 느끼는 것이 핵심",
+                    "바닥 도달 전까지의 '중간 입질(Falling Bite)' 정보 수집"
+                ],
+                icon: "⬇️"
+            },
+            {
+                title: "▣ 마이크로 크리프 (Micro-Creep)",
+                points: [
+                    "릴링 금지: 손가락으로 8자 감기를 하며 초저속 이동",
+                    "인디케이터 색상 마디가 아주 느리고 일정하게 움직여야 함",
+                    "저수지 대류에 맞춰 자연스럽게 떠내려가듯(Drift) 운용"
+                ],
+                icon: "🌊"
+            },
+            {
+                title: "▣ 입질 감지 (Detection)",
+                points: [
+                    "무게감 상실: 텐션이 갑자기 사라지거나 라인이 느슨해질 때",
+                    "시각적 정지: 수면 위 인디케이터가 '틱' 하고 멈출 때",
+                    "즉각적인 대응: 의심스러우면 즉시 길고 부드럽게 훅셋"
+                ],
+                icon: "⚡"
+            }
+        ];
+
+        // Functions
+        function showPart(partId) {
+            const data = rigData[partId];
+            const contentDiv = document.getElementById('detail-content');
+            
+            // Remove Fade In class to restart animation
+            contentDiv.classList.remove('fade-in');
+            void contentDiv.offsetWidth; // trigger reflow
+            contentDiv.classList.add('fade-in');
+
+            let html = `
+                <div class="flex items-center mb-4">
+                    <div class="w-3 h-8 bg-stone-300 mr-3 rounded-sm ${partId === 'indicator' ? 'bg-gradient-to-b from-pink-500 to-lime-400' : (partId === 'tippet' ? 'bg-blue-200' : 'bg-stone-800')}"></div>
+                    <h3 class="text-xl font-bold text-stone-800">${data.title}</h3>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    <div class="bg-white p-3 rounded border border-stone-200">
+                        <span class="text-xs text-stone-400 font-bold uppercase block">핵심 역할</span>
+                        <span class="text-sm font-semibold text-stone-700">${data.role}</span>
+                    </div>
+                    <div class="bg-white p-3 rounded border border-stone-200">
+                        <span class="text-xs text-stone-400 font-bold uppercase block">운용 상태</span>
+                        <span class="text-sm font-semibold text-stone-700">${data.status}</span>
+                    </div>
+                </div>
+                <p class="text-stone-600 leading-relaxed text-sm md:text-base">${data.desc}</p>
+            `;
+            
+            document.getElementById('detail-content').innerHTML = html;
+        }
+
+        function setPhase(index) {
+            // Update Tabs
+            for(let i=0; i<3; i++) {
+                const tab = document.getElementById(`tab-${i}`);
+                if(i === index) {
+                    tab.classList.add('active-tab');
+                    tab.classList.remove('inactive-tab');
+                } else {
+                    tab.classList.remove('active-tab');
+                    tab.classList.add('inactive-tab');
+                }
+            }
+
+            // Update Content
+            const data = techniquePhases[index];
+            const contentDiv = document.getElementById('phase-content');
+            
+            contentDiv.classList.remove('fade-in');
+            void contentDiv.offsetWidth;
+            contentDiv.classList.add('fade-in');
+
+            let pointsHtml = data.points.map(p => `<li class="flex items-start mb-2"><span class="text-amber-600 mr-2">✔</span><span>${p}</span></li>`).join('');
+
+            contentDiv.innerHTML = `
+                <div class="flex flex-col md:flex-row items-center md:items-start gap-6">
+                    <div class="text-5xl md:text-6xl bg-stone-100 p-6 rounded-full">${data.icon}</div>
+                    <div class="flex-1">
+                        <h3 class="text-lg md:text-xl font-bold text-stone-800 mb-4">${data.title}</h3>
+                        <ul class="text-stone-600 space-y-2 text-sm md:text-base">
+                            ${pointsHtml}
+                        </ul>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize Chart
+        document.addEventListener('DOMContentLoaded', function() {
+            // Render first rig detail by default
+            showPart('shorty');
+            
+            // Render first phase
+            setPhase(0);
+
+            // Chart.js Setup
+            const ctx = document.getElementById('sensitivityChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['0m (수면)', '1.5m', '3.0m', '4.5m', '6.0m (바닥)'],
+                    datasets: [
+                        {
+                            label: '하이브리드 시스템 (Shorty + Mono)',
+                            data: [100, 98, 95, 92, 90], // High sensitivity retained
+                            borderColor: '#4b5563', // stone-600
+                            backgroundColor: '#78716c',
+                            borderWidth: 3,
+                            tension: 0, // Straight line (Tight line)
+                            pointBackgroundColor: '#fff',
+                            pointBorderColor: '#4b5563',
+                            pointRadius: 5
+                        },
+                        {
+                            label: '일반 라인 시스템',
+                            data: [100, 80, 50, 30, 15], // Rapid drop-off due to drag
+                            borderColor: '#d6d3d1', // stone-300
+                            backgroundColor: '#e7e5e4',
+                            borderWidth: 2,
+                            borderDash: [5, 5],
+                            tension: 0.4, // Curved (Sag)
+                            pointBackgroundColor: '#fff',
+                            pointBorderColor: '#d6d3d1',
+                            pointRadius: 4
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20,
+                                font: { family: "'Noto Sans KR', sans-serif" }
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(255, 255, 255, 0.95)',
+                            titleColor: '#1c1917',
+                            bodyColor: '#44403c',
+                            borderColor: '#e7e5e4',
+                            borderWidth: 1,
+                            padding: 10,
+                            callbacks: {
+                                label: function(context) {
+                                    return context.dataset.label + ': 감도 ' + context.parsed.y + '%';
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 110,
+                            title: {
+                                display: true,
+                                text: '입질 전달 감도 (%)'
+                            },
+                            grid: {
+                                color: '#f5f5f4'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                }
+            });
+        });
+    </script>
+</body>
+</html>
