@@ -44,22 +44,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
-    <!-- Chosen Palette: Warm Stone & Earth Tones (Stone-50 background, Stone-800 text, Amber/Olive accents) -->
-    <!-- Application Structure Plan:
-         1. Dashboard Header: Immediate tactical overview with key metrics (Length, Depth).
-         2. Interactive Rig Builder (Blueprint): A visual, vertical representation of the 50ft system. Users click segments (Shorty, Indicator, Tippet) to understand their specific role and status (Aerial/Submerged). This replaces a static list.
-         3. Physics of Depth (Analysis): A Chart.js visualization comparing 'Sensitivity vs. Depth' between this hybrid rig and standard rigs, justifying the 'Zero Sag' concept at 6m.
-         4. Tactical Execution Flow: A step-by-step interactive guide (Fall -> Creep -> Detection) that changes content dynamically, teaching the user the 'feel' of the technique.
-         5. Practical Survival Grid: A grid of cards for critical field tips (Wind, Patterns, Landing).
-         Why: This structure breaks down complex spatial and tactile concepts into visual, interactive chunks, making the 6m deep-water strategy easier to visualize and memorize.
-    -->
-    <!-- Visualization & Content Choices:
-         1. Rig Diagram: HTML/CSS vertical stack. Goal: Organize. Shows the hierarchy and connection of lines. Interaction: Click to reveal details.
-         2. Sensitivity Chart: Chart.js Line Chart. Goal: Inform/Compare. visually demonstrates why the Shorty/Mono system is superior at 6m depth compared to standard lines.
-         3. Phase Selector: Tabbed Interface. Goal: Change/Process. Breaks down the continuous action of fishing into distinct, learnable mental states.
-         4. Confirmation: NO SVG graphics used. NO Mermaid JS used.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
 </head>
 <body class="bg-stone-50 text-stone-800 antialiased selection:bg-stone-200">
 
@@ -97,6 +81,22 @@
     </header>
 
     <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+        <!-- Product Reference Image -->
+        <section class="bg-white rounded-xl shadow-sm border border-stone-200 p-6 md:p-8">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+                <img src="https://mayflyoutdoors.com/cdn/shop/files/ens-box-29431.jpg?v=1752085712&width=1800" 
+                     alt="Airflo Euro Nymph Shorty 22ft" 
+                     class="w-full md:w-1/2 rounded-lg shadow-md object-cover">
+                <div class="flex-1">
+                    <p class="text-xs text-stone-400 font-bold uppercase tracking-widest mb-2">Core Equipment</p>
+                    <h3 class="text-xl font-bold text-stone-800 mb-2">Airflo Euro Nymph Shorty — 22ft</h3>
+                    <p class="text-stone-600 text-sm leading-relaxed">
+                        유로 님프 플라이 라인과 동일하게 0.55mm의 초슬림 직경으로 설계된 22ft 숏티 라인입니다. 매우 유연한 코팅과 극도로 낮은 신축성을 갖추어, 수중에서 뛰어난 입질 감지력과 퍼포먼스를 제공합니다. 기존 플라이 낚시 세팅을 몇 초 만에 유로 님프 세팅으로 전환할 수 있는 독창적인 라인이며, 하이비즈 오렌지 팁으로 아주 미세한 입질도 느낌과 동시에 눈으로 확인할 수 있습니다. 후단의 대형 웰디드 루프를 통해 드라이 플라이나 보버 리그와 빠르게 교체할 수 있어, 하나의 세팅만으로 다양한 상황에 대응할 수 있습니다.
+                    </p>
+                </div>
+            </div>
+        </section>
 
         <!-- Section 1: System Blueprint -->
         <section id="system-blueprint">
