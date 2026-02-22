@@ -3,7 +3,7 @@
 > 플라이 낚시 기법을 체계적으로 정리한 아카이브입니다. 관리형 낚시터(저수지)에서의 실전 경험을 바탕으로 다양한 기법들을 문서화하고 있습니다.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://caddis-gr.github.io/fishing-technique/)
-[![Techniques](https://img.shields.io/badge/Techniques-9-blue)](#)
+[![Techniques](https://img.shields.io/badge/Techniques-10-blue)](#)
 [![Season](https://img.shields.io/badge/Season-2026-purple)](#)
 
 ## 📋 프로젝트 소개
@@ -19,7 +19,7 @@
 - **지속적 업데이트**: 새로운 기법과 경험을 계속 추가
 - **커뮤니티 공유**: 플라이 낚시 커뮤니티와 지식 공유
 
-## 🗂️ 수록된 기법 (총 9개)
+## 🗂️ 수록된 기법 (총 10개)
 
 ### 🗺️ 낚시터 포인트 맵 (1)
 
@@ -70,7 +70,7 @@
 - **적용 환경**: 수심 변화가 큰 저수지
 - **태그**: `#멀티플라이` `#고급기법` `#전층공략`
 
-#### [마이크로 님핑 (Micro Nymphing)](https://caddis-gr.github.io/fishing-technique/techniques/Micro_Nymphing_Guide.html) `NEW!`
+#### [마이크로 님핑 (Micro Nymphing)](https://caddis-gr.github.io/fishing-technique/techniques/Micro_Nymphing_Guide.html)
 - **특징**: 인터랙티브 가이드 (레이더 차트 + 장비 탭 + 3단계 프로세스)
 - **내용**: "작게, 길고 가늘게, 천천히 느리게!" 혹한기 극도로 예민해진 송어를 유혹하는 섬세한 기술의 정점
 - **핵심 전략**: Small × Long & Thin × Slow 3대 원칙
@@ -104,7 +104,7 @@
 
 ---
 
-### 🧭 전략 & 전술 (2)
+### 🧭 전략 & 전술 (3)
 
 #### [정수지 전술 매트릭스](https://caddis-gr.github.io/fishing-technique/techniques/Stillwater_Tactical_Matrix.html)
 - **특징**: 저수지 환경 종합 전략
@@ -118,6 +118,20 @@
 - **핵심 전략**: 시스템 설계, 감도 분석, 3단계 실전 프로세스
 - **적용 환경**: 깊은 수심(6m+), 저수온기 심층 공략
 - **태그**: `#하이브리드` `#심층공략` `#타이트라인`
+
+#### [컬러 로테이션 전략 가이드](https://caddis-gr.github.io/fishing-technique/techniques/Color_Rotation_Strategy_Guide.html) `NEW!`
+- **특징**: 필드 데이터 기반 업데이트형 레퍼런스 문서
+- **내용**: Habituation 차단과 Visual Reset 원리에 기반한 훅 색상 로테이션 전략
+- **핵심 전략**: 올리브 → 블랙 → 차트리우스 → 화이트 → 퍼플 5색 로테이션
+- **포함 주제**:
+  - Habituation / Visual Reset / Reaction Bite 과학적 근거
+  - 수심별 색상 파장 투과력 분석 (6m 바닥 기준)
+  - 5색 Primary Rotation 플로우 및 각 전환 이유
+  - 색상별 운용 가이드 (역할·특성·투입 시점)
+  - 필드 데이터 업데이트 로그 (v1.0 ~ 검증 예정)
+- **적용 환경**: 심수(4~6m) 풀싱킹 채비, 저활성 관리형 저수지
+- **검증 현황**: 2026-02-21 한터낚시터 필드 검증 완료 (20수)
+- **태그**: `#컬러로테이션` `#리액션바이트` `#풀싱킹` `#심수공략`
 
 ---
 
@@ -167,7 +181,8 @@ fishing-technique/
 │   ├── Naked_Fishing_Emerger_Tip.html
 │   ├── Full_Sinking_Line_Bottom_Retrieval.html
 │   ├── Stillwater_Tactical_Matrix.html
-│   └── Hybrid_Drift_Fishing.html
+│   ├── Hybrid_Drift_Fishing.html
+│   └── Color_Rotation_Strategy_Guide.html
 ├── spot-maps/              # 낚시터 포인트 맵
 │   └── shingi-fishing-spot.html
 └── images/                 # 이미지 리소스
@@ -189,6 +204,7 @@ fishing-technique/
 ### 3. 데이터 시각화
 - Chart.js 레이더 차트로 기법 특성 비교
 - 라이트박스 이미지 뷰어 (플라이 패턴 확대)
+- 수심별 색상 파장 투과력 바 차트
 
 ### 4. 반응형 디자인
 - 모바일, 태블릿, 데스크톱 최적화
@@ -209,7 +225,7 @@ fishing-technique/
 
 | 항목 | 수량 |
 |------|------|
-| 총 기법 수 | 9개 |
+| 총 기법 수 | 10개 |
 | 카테고리 | 5개 |
 | 시즌 | 2026 |
 | 실전 적용률 | 100% |
@@ -222,8 +238,17 @@ fishing-technique/
 
 ## 📝 업데이트 이력
 
+### 2026-02-21
+- 🎨 **컬러 로테이션 전략 가이드** 추가 `NEW!`
+  - Habituation / Visual Reset / Reaction Bite 과학적 근거 정리
+  - 수심별 색상 파장 투과력 시각화 (6m 바닥 기준)
+  - 올리브→블랙→차트리우스→화이트→퍼플 5색 Primary Rotation 확립
+  - 퍼플→올리브 리로테이션 전략 포함
+  - 필드 데이터 업데이트 로그 (v1.0 한터낚시터 20수 검증)
+- 📊 통계 업데이트 (기법 10개)
+
 ### 2026-02-13
-- 🔬 **마이크로 님핑 (Micro Nymphing) 가이드** 추가 `NEW!`
+- 🔬 **마이크로 님핑 (Micro Nymphing) 가이드** 추가
   - 레이더 차트 기반 기법 특성 분석
   - 추천 장비 시스템 인터랙티브 탭 (로드·라인·리더·인디케이터)
   - 타겟 플라이 패턴 4종 + 라이트박스 이미지 뷰어
