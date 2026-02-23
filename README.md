@@ -3,7 +3,7 @@
 > 플라이 낚시 기법을 체계적으로 정리한 아카이브입니다. 관리형 낚시터(저수지)에서의 실전 경험을 바탕으로 다양한 기법들을 문서화하고 있습니다.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://caddis-gr.github.io/fishing-technique/)
-[![Techniques](https://img.shields.io/badge/Techniques-10-blue)](#)
+[![Techniques](https://img.shields.io/badge/Techniques-11-blue)](#)
 [![Season](https://img.shields.io/badge/Season-2026-purple)](#)
 
 ## 📋 프로젝트 소개
@@ -19,7 +19,7 @@
 - **지속적 업데이트**: 새로운 기법과 경험을 계속 추가
 - **커뮤니티 공유**: 플라이 낚시 커뮤니티와 지식 공유
 
-## 🗂️ 수록된 기법 (총 10개)
+## 🗂️ 수록된 기법 (총 11개)
 
 ### 🗺️ 낚시터 포인트 맵 (1)
 
@@ -94,13 +94,25 @@
 
 ---
 
-### ⚓ 풀싱킹 라인 (1)
+### ⚓ 풀싱킹 라인 (2)
 
 #### [풀싱킹 라인 바닥 리트리벌](https://caddis-gr.github.io/fishing-technique/techniques/Full_Sinking_Line_Bottom_Retrieval.html)
 - **특징**: 심층 공략의 핵심 기법
 - **내용**: 풀싱킹 라인으로 바닥층을 효과적으로 공략
 - **적용 환경**: 깊은 수심, 저수온기
 - **태그**: `#풀싱킹` `#심층` `#리트리벌`
+
+#### [3D 풀싱킹 미니리치 물속 움직임의 시뮬레이션](https://caddis-gr.github.io/fishing-technique/techniques/3D_fullsinking_mini_leech_sim.html) `NEW!`
+- **특징**: 인터랙티브 수중 거동 시뮬레이션
+- **내용**: Sonar Titan 3D SINK I/3/5 + 미니리치 채비의 실제 수중 거동 분석. 싱킹라인이 끌고 플라이가 따라오는 피동적 침강 메커니즘을 4단계 페이즈로 시각화
+- **핵심 분석**:
+  - 착수→침강→착저→리트리브 4단계 페이즈별 라인·리더·플라이 위치
+  - 바닥 간헐 터치 메커니즘 (흰 플라이 오염도 관찰 기반)
+  - 나일론 티펫 vs 카본 티펫 비교 (비중 1.78→1.14 효과)
+  - 존커 collar 증량에 의한 수중 저항 증가 효과
+  - 채비 변수 누적에 따른 어필 종합 지수 시각화
+- **적용 환경**: 한터낚시터 6m 수심, 18m 롱캐스팅, 30카운트 침강
+- **태그**: `#3D풀싱킹` `#미니리치` `#수중거동` `#시뮬레이션` `#채비최적화`
 
 ---
 
@@ -182,7 +194,8 @@ fishing-technique/
 │   ├── Full_Sinking_Line_Bottom_Retrieval.html
 │   ├── Stillwater_Tactical_Matrix.html
 │   ├── Hybrid_Drift_Fishing.html
-│   └── Color_Rotation_Strategy_Guide.html
+│   ├── Color_Rotation_Strategy_Guide.html
+│   └── 3D_fullsinking_mini_leech_sim.html
 ├── spot-maps/              # 낚시터 포인트 맵
 │   └── shingi-fishing-spot.html
 └── images/                 # 이미지 리소스
@@ -205,6 +218,7 @@ fishing-technique/
 - Chart.js 레이더 차트로 기법 특성 비교
 - 라이트박스 이미지 뷰어 (플라이 패턴 확대)
 - 수심별 색상 파장 투과력 바 차트
+- 수중 거동 인터랙티브 시뮬레이션 (Canvas 기반)
 
 ### 4. 반응형 디자인
 - 모바일, 태블릿, 데스크톱 최적화
@@ -225,7 +239,7 @@ fishing-technique/
 
 | 항목 | 수량 |
 |------|------|
-| 총 기법 수 | 10개 |
+| 총 기법 수 | 11개 |
 | 카테고리 | 5개 |
 | 시즌 | 2026 |
 | 실전 적용률 | 100% |
@@ -237,6 +251,15 @@ fishing-technique/
 - **[Fishing Gear](https://github.com/CADDIS-GR/fishing-gear)**: 낚시 장비 정보
 
 ## 📝 업데이트 이력
+
+### 2026-02-23
+- 🌊 **3D 풀싱킹 미니리치 물속 움직임의 시뮬레이션** 추가 `NEW!`
+  - Sonar Titan 3D SINK I/3/5 + 미니리치 채비 수중 거동 Canvas 시뮬레이션
+  - 착수→침강→착저→리트리브 4단계 페이즈 시각화
+  - 흰 플라이 오염도 관찰 기반 바닥 간헐 터치 메커니즘 재현 (이격 ~1cm)
+  - 나일론 티펫 / collar 증량 변수 효과 비교 인터랙티브 분석
+  - 채비 어필 종합 지수 실시간 시각화
+- 📊 통계 업데이트 (기법 11개)
 
 ### 2026-02-21
 - 🎨 **컬러 로테이션 전략 가이드** 추가 `NEW!`
