@@ -1,362 +1,106 @@
 # 🎣 Fly Fishing Techniques Archive
+### 플라이 낚시 테크닉 아카이브
 
-> 플라이 낚시 기법을 체계적으로 정리한 아카이브입니다. 관리형 낚시터(저수지)에서의 실전 경험을 바탕으로 다양한 기법들을 문서화하고 있습니다.
+관리형 낚시터(저수지)에서의 실전 경험을 바탕으로 다양한 플라이낚시 기법들을 문서화하고 있습니다.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://caddis-gr.github.io/fishing-technique/)
-[![Techniques](https://img.shields.io/badge/Techniques-11-blue)](#)
-[![Season](https://img.shields.io/badge/Season-2026-purple)](#)
-
-## 📋 프로젝트 소개
-
-이 프로젝트는 플라이 낚시의 다양한 기법들을 AI 도구를 활용하여 체계적으로 정리하고 공유하기 위해 만들어졌습니다. 각 기법은 실전에서 검증된 내용을 바탕으로 작성되었으며, 초보자부터 숙련자까지 참고할 수 있는 실질적인 정보를 담고 있습니다.
-
-🌐 **https://caddis-gr.github.io/fishing-technique/**
-
-### 🎯 프로젝트 목표
-
-- **체계적 문서화**: 플라이 낚시 기법을 카테고리별로 정리
-- **실전 중심**: 이론보다는 실제 경험을 바탕으로 한 실용적인 내용
-- **지속적 업데이트**: 새로운 기법과 경험을 계속 추가
-- **커뮤니티 공유**: 플라이 낚시 커뮤니티와 지식 공유
-
-## 🗂️ 수록된 기법 (총 11개)
-
-### 🗺️ 낚시터 포인트 맵 (1)
-
-#### [신기지낚시터 포인트 맵](https://caddis-gr.github.io/fishing-technique/spot-maps/shingi-fishing-spot.html)
-- **특징**: 인터랙티브 맵 형식
-- **내용**: 6개 핵심 포인트별 수심, 특징, 시간대별 공략법
-- **핵심 전략**: 혹한기 송어 공략에 최적화된 실전 정보
-- **포함 주제**:
-  - 6개 핵심 포인트 위치 및 수심 정보
-  - 시간대별 포인트 공략 전략
-  - 포인트별 추천 기법 및 플라이
-- **태그**: `#신기지낚시터` `#포인트맵` `#수심정보` `#시간대공략`
+![Techniques](https://img.shields.io/badge/Techniques-12-blue)
+![Season](https://img.shields.io/badge/Season-2026-orange)
+![Practical](https://img.shields.io/badge/Practical-100%25-success)
 
 ---
+
+## 📂 수록 기법 목록
+
+### 🗺️ 낚시터 포인트 맵 (2)
+
+| 파일 | 제목 | 설명 |
+|------|------|------|
+| `spot-maps/shingi-fishing-spot.html` | **신기낚시터 포인트 맵** | 6개 핵심 포인트별 수심·특징·시간대별 공략법 인터랙티브 맵 |
+| `techniques/singiji-light.html` ⭐ NEW | **그곳이 알고 싶다 — 신기지 정밀 분석 리포트** | 2025~2026 시즌 12회 조행기 데이터 기반 종합 분석. 포인트 구조, 계절별 패턴, 황금 타임, 패턴 효과 매트릭스 |
 
 ### ❄️ 계절별 전략 (1)
 
-#### [혹한기 신기지 마스터 가이드](https://caddis-gr.github.io/fishing-technique/techniques/Winter_Singiji_Master_Guide.html)
-- **특징**: 10개 인터랙티브 카드 형식
-- **내용**: 기온 -10℃ 극한 환경에서의 실전 공략법
-- **핵심 전략**: 작게, 느리게, 자주 바꾸기
-- **포함 주제**:
-  - 혹한기 상황 인식
-  - 플라이 운영 기본 원칙
-  - 색상 전략 (무채색 중심)
-  - 인디케이터 님핑 핵심
-  - 느린 스위밍의 위력
-  - 송어의 학습력 대응
-  - 신기지 포인트 선정
-  - 포인트 공략법 구분
-  - 시간대별 활성 변화
-  - 최종 요약
-- **태그**: `#혹한기` `#신기지` `#님핑` `#저활성`
-
----
+| 파일 | 제목 | 설명 |
+|------|------|------|
+| `techniques/Winter_Singiji_Master_Guide.html` | **혹한기 신기지 마스터 가이드** | 기온 -10℃ 극한 환경 실전 공략. 작게·느리게·자주 바꾸기. 10개 카드 인터랙티브 가이드 |
 
 ### 🎯 인디케이터 님핑 (3)
 
-#### [네이키드 피싱 with 인디케이터](https://caddis-gr.github.io/fishing-technique/techniques/Naked_Fishing_With_Indicator.html)
-- **특징**: 인디케이터 님핑의 기본 원리
-- **내용**: 수심 조절과 입질 감지의 핵심 테크닉
-- **적용 환경**: 관리형 저수지, 전층 공략
-- **태그**: `#인디케이터` `#님핑` `#기본기`
-
-#### [멀티 스플릿 인디케이터 님핑](https://caddis-gr.github.io/fishing-technique/techniques/Multi-Split_Indicator_Nymphing.html)
-- **특징**: 여러 개의 플라이를 동시 운용
-- **내용**: 수심대별 공략이 가능한 고급 테크닉
-- **적용 환경**: 수심 변화가 큰 저수지
-- **태그**: `#멀티플라이` `#고급기법` `#전층공략`
-
-#### [마이크로 님핑 (Micro Nymphing)](https://caddis-gr.github.io/fishing-technique/techniques/Micro_Nymphing_Guide.html)
-- **특징**: 인터랙티브 가이드 (레이더 차트 + 장비 탭 + 3단계 프로세스)
-- **내용**: "작게, 길고 가늘게, 천천히 느리게!" 혹한기 극도로 예민해진 송어를 유혹하는 섬세한 기술의 정점
-- **핵심 전략**: Small × Long & Thin × Slow 3대 원칙
-- **포함 주제**:
-  - 테크닉 특성 레이더 차트 분석 (Micro vs Standard 비교)
-  - 추천 장비 시스템 (로드·라인·리더·인디케이터)
-  - 타겟 플라이 패턴 4종 (라이트박스 이미지 뷰어 포함)
-  - 운영 테크닉 3단계 프로세스 (캐스팅→슬로우 스위밍→입질 파악)
-- **적용 환경**: 혹한기, 저활성 관리형 저수지
-- **태그**: `#마이크로님핑` `#혹한기` `#피네스` `#소형플라이`
-
----
+| 파일 | 제목 | 설명 |
+|------|------|------|
+| `techniques/Naked_Fishing_With_Indicator.html` | **네이키드 피싱 with 인디케이터** | 인디케이터 님핑의 기본. 수심 조절과 입질 감지 핵심 테크닉 |
+| `techniques/Multi-Split_Indicator_Nymphing.html` | **다분할 인디케이터 마이크로 님핑** | 작고 가벼운 다수 인디케이터를 이용한 마이크로 님핑 |
+| `techniques/Micro_Nymphing_Guide.html` | **마이크로 님핑 (Micro Nymphing)** | 혹한기 극저활성 송어 공략. 장비 시스템·플라이 패턴·3단계 프로세스 |
 
 ### 🦟 이머저 & 서피스 (1)
 
-#### [네이키드 피싱 이머저 팁](https://caddis-gr.github.io/fishing-technique/techniques/Naked_Fishing_Emerger_Tip.html)
-- **특징**: 수면 직하 이머저 패턴 운용
-- **내용**: 부화 타이밍을 노리는 전문 테크닉
-- **적용 시기**: 봄철, 가을철 부화기
-- **태그**: `#이머저` `#부화` `#서피스`
-
----
+| 파일 | 제목 | 설명 |
+|------|------|------|
+| `techniques/Naked_Fishing_Emerger_Tip.html` | **네이키드 피싱 이머저 팁** | 수면 직하 이머저 패턴 운용. 부화 타이밍을 노리는 전문 테크닉 |
 
 ### ⚓ 풀싱킹 라인 (2)
 
-#### [풀싱킹 라인 바닥 리트리벌](https://caddis-gr.github.io/fishing-technique/techniques/Full_Sinking_Line_Bottom_Retrieval.html)
-- **특징**: 심층 공략의 핵심 기법
-- **내용**: 풀싱킹 라인으로 바닥층을 효과적으로 공략
-- **적용 환경**: 깊은 수심, 저수온기
-- **태그**: `#풀싱킹` `#심층` `#리트리벌`
-
-#### [3D 풀싱킹 미니리치 물속 움직임의 시뮬레이션](https://caddis-gr.github.io/fishing-technique/techniques/3D_fullsinking_mini_leech_sim.html) `NEW!`
-- **특징**: 인터랙티브 수중 거동 시뮬레이션
-- **내용**: Sonar Titan 3D SINK I/3/5 + 미니리치 채비의 실제 수중 거동 분석. 싱킹라인이 끌고 플라이가 따라오는 피동적 침강 메커니즘을 4단계 페이즈로 시각화
-- **핵심 분석**:
-  - 착수→침강→착저→리트리브 4단계 페이즈별 라인·리더·플라이 위치
-  - 바닥 간헐 터치 메커니즘 (흰 플라이 오염도 관찰 기반)
-  - 나일론 티펫 vs 카본 티펫 비교 (비중 1.78→1.14 효과)
-  - 존커 collar 증량에 의한 수중 저항 증가 효과
-  - 채비 변수 누적에 따른 어필 종합 지수 시각화
-- **적용 환경**: 한터낚시터 6m 수심, 18m 롱캐스팅, 30카운트 침강
-- **태그**: `#3D풀싱킹` `#미니리치` `#수중거동` `#시뮬레이션` `#채비최적화`
-
----
+| 파일 | 제목 | 설명 |
+|------|------|------|
+| `techniques/Full_Sinking_Line_Bottom_Retrieval.html` | **풀싱킹 라인 바닥 리트리벌** | 심층 공략의 핵심. 풀싱킹 라인으로 바닥층 효과적 공략 |
+| `techniques/3D_fullsinking_mini_leech_sim.html` | **3D 풀싱킹 미니리치 수중 거동 시뮬레이션** | Sonar Titan 3D SINK + 미니리치 채비의 실제 수중 거동 분석 인터랙티브 시뮬레이션 |
 
 ### 🧭 전략 & 전술 (3)
 
-#### [정수지 전술 매트릭스](https://caddis-gr.github.io/fishing-technique/techniques/Stillwater_Tactical_Matrix.html)
-- **특징**: 저수지 환경 종합 전략
-- **내용**: 상황별 판단과 대응 방법 체계화
-- **적용 범위**: 포인트 선정, 패턴 선택, 테크닉 조합
-- **태그**: `#전략` `#정수지` `#종합`
-
-#### [하이브리드 드리프트 피싱](https://caddis-gr.github.io/fishing-technique/techniques/Hybrid_Drift_Fishing.html)
-- **특징**: 인터랙티브 3단계 실전 프로세스
-- **내용**: Airflo Shorty + 롱 리더 시스템으로 6m 심층을 공략하는 타이트라인 전략
-- **핵심 전략**: 시스템 설계, 감도 분석, 3단계 실전 프로세스
-- **적용 환경**: 깊은 수심(6m+), 저수온기 심층 공략
-- **태그**: `#하이브리드` `#심층공략` `#타이트라인`
-
-#### [컬러 로테이션 전략 가이드](https://caddis-gr.github.io/fishing-technique/techniques/Color_Rotation_Strategy_Guide.html) `NEW!`
-- **특징**: 필드 데이터 기반 업데이트형 레퍼런스 문서
-- **내용**: Habituation 차단과 Visual Reset 원리에 기반한 훅 색상 로테이션 전략
-- **핵심 전략**: 올리브 → 블랙 → 차트리우스 → 화이트 → 퍼플 5색 로테이션
-- **포함 주제**:
-  - Habituation / Visual Reset / Reaction Bite 과학적 근거
-  - 수심별 색상 파장 투과력 분석 (6m 바닥 기준)
-  - 5색 Primary Rotation 플로우 및 각 전환 이유
-  - 색상별 운용 가이드 (역할·특성·투입 시점)
-  - 필드 데이터 업데이트 로그 (v1.0 ~ 검증 예정)
-- **적용 환경**: 심수(4~6m) 풀싱킹 채비, 저활성 관리형 저수지
-- **검증 현황**: 2026-02-21 한터낚시터 필드 검증 완료 (20수)
-- **태그**: `#컬러로테이션` `#리액션바이트` `#풀싱킹` `#심수공략`
+| 파일 | 제목 | 설명 |
+|------|------|------|
+| `techniques/Stillwater_Tactical_Matrix.html` | **정수지 전술 매트릭스** | 저수지 환경 종합 전략. 상황별 판단과 대응 체계화 |
+| `techniques/Hybrid_Drift_Fishing.html` | **하이브리드 드리프트 피싱** | Airflo Shorty + 롱 리더로 6m 심층 공략하는 타이트라인 전략 |
+| `techniques/Color_Rotation_Strategy_Guide.html` | **컬러 로테이션 전략 가이드** | Habituation 차단·Visual Reset 기반 훅 색상 로테이션. 5색 로테이션 세트 |
 
 ---
 
-## 🚀 사용 방법
-
-### 웹사이트 방문
-[https://caddis-gr.github.io/fishing-technique/](https://caddis-gr.github.io/fishing-technique/)
-
-### 개별 가이드 접근
-각 기법은 독립된 HTML 페이지로 구성되어 있어 직접 링크로 접근 가능합니다.
-
-```
-# 기법 가이드
-https://caddis-gr.github.io/fishing-technique/techniques/[파일명].html
-
-# 포인트 맵
-https://caddis-gr.github.io/fishing-technique/spot-maps/[파일명].html
-```
-
-### 로컬 실행
-```bash
-git clone https://github.com/CADDIS-GR/fishing-technique.git
-cd fishing-technique
-# index.html을 브라우저로 열기
-```
-
-## 🛠️ 기술 스택
-
-- **HTML5**: 시맨틱 마크업
-- **Tailwind CSS**: 모던한 스타일링
-- **Vanilla JavaScript**: 인터랙티브 기능
-- **Chart.js**: 레이더 차트 시각화
-- **GitHub Pages**: 호스팅
-- **Lucide Icons**: 아이콘 라이브러리
-
-## 📊 프로젝트 구조
+## 📁 디렉토리 구조
 
 ```
 fishing-technique/
-├── index.html              # 메인 대문 페이지
-├── README.md               # 프로젝트 문서
-├── techniques/             # 기법 모음
+├── index.html              # 메인 아카이브 페이지
+├── README.md
+├── techniques/             # 기법 문서
+│   ├── singiji-light.html              ⭐ NEW — 신기지 정밀 분석 리포트
+│   ├── 260225-singiji-Attact.html      — 신기지 공략법
 │   ├── Winter_Singiji_Master_Guide.html
 │   ├── Naked_Fishing_With_Indicator.html
 │   ├── Multi-Split_Indicator_Nymphing.html
 │   ├── Micro_Nymphing_Guide.html
 │   ├── Naked_Fishing_Emerger_Tip.html
 │   ├── Full_Sinking_Line_Bottom_Retrieval.html
-│   ├── Stillwater_Tactical_Matrix.html
+│   ├── 3D_fullsinking_mini_leech_sim.html
 │   ├── Hybrid_Drift_Fishing.html
 │   ├── Color_Rotation_Strategy_Guide.html
-│   └── 3D_fullsinking_mini_leech_sim.html
-├── spot-maps/              # 낚시터 포인트 맵
-│   └── shingi-fishing-spot.html
-└── images/                 # 이미지 리소스
+│   ├── Stillwater_Tactical_Matrix.html
+│   └── fly_hovering_simulation.html
+└── spot-maps/              # 포인트 맵
+    └── shingi-fishing-spot.html
 ```
 
-## 🎨 주요 특징
+---
 
-### 1. 인터랙티브 가이드
-- 카드 기반 UI (혹한기 가이드)
-- PREVIOUS/NEXT 네비게이션
-- 스와이프 제스처 지원
-- 키보드 단축키 (←/→/Space)
+## 🔗 관련 링크
 
-### 2. 인터랙티브 포인트 맵
-- 낚시터 포인트별 상세 정보
-- 수심·특징·추천 기법 한눈에 확인
-- 시간대별 공략 전략 연동
+- 🌐 **GitHub Pages** : [https://caddis-gr.github.io/fishing-technique/](https://caddis-gr.github.io/fishing-technique/)
+- 🪰 **Fly Tying Archive** : [https://caddis-gr.github.io/fly-tying-archive/](https://caddis-gr.github.io/fly-tying-archive/)
+- 📁 **GitHub Repository** : [https://github.com/CADDIS-GR/fishing-technique](https://github.com/CADDIS-GR/fishing-technique)
 
-### 3. 데이터 시각화
-- Chart.js 레이더 차트로 기법 특성 비교
-- 라이트박스 이미지 뷰어 (플라이 패턴 확대)
-- 수심별 색상 파장 투과력 바 차트
-- 수중 거동 인터랙티브 시뮬레이션 (Canvas 기반)
+---
 
-### 4. 반응형 디자인
-- 모바일, 태블릿, 데스크톱 최적화
-- 터치 친화적 인터페이스
-- 다크모드 고려 (일부 가이드)
+## 📅 업데이트 히스토리
 
-### 5. 접근성 (Accessibility)
-- ARIA 레이블
-- 키보드 네비게이션
-- 스크린 리더 지원
-
-### 6. 카테고리 시스템
-- 색상 코드로 시각적 구분
-- 태그 기반 분류
-- NEW 배지로 최신 콘텐츠 표시
-
-## 📈 통계
-
-| 항목 | 수량 |
+| 날짜 | 내용 |
 |------|------|
-| 총 기법 수 | 11개 |
-| 카테고리 | 5개 |
-| 시즌 | 2026 |
-| 실전 적용률 | 100% |
-
-## 🔗 관련 프로젝트
-
-- **[Fly Tying Archive](https://caddis-gr.github.io/fly-tying-archive/)**: 플라이 타잉 패턴 아카이브
-- **[Fishing Log](https://github.com/CADDIS-GR/fishing-log)**: 낚시 일지 관리 시스템
-- **[Fishing Gear](https://github.com/CADDIS-GR/fishing-gear)**: 낚시 장비 정보
-
-## 📝 업데이트 이력
-
-### 2026-02-23
-- 🌊 **3D 풀싱킹 미니리치 물속 움직임의 시뮬레이션** 추가 `NEW!`
-  - Sonar Titan 3D SINK I/3/5 + 미니리치 채비 수중 거동 Canvas 시뮬레이션
-  - 착수→침강→착저→리트리브 4단계 페이즈 시각화
-  - 흰 플라이 오염도 관찰 기반 바닥 간헐 터치 메커니즘 재현 (이격 ~1cm)
-  - 나일론 티펫 / collar 증량 변수 효과 비교 인터랙티브 분석
-  - 채비 어필 종합 지수 실시간 시각화
-- 📊 통계 업데이트 (기법 11개)
-
-### 2026-02-21
-- 🎨 **컬러 로테이션 전략 가이드** 추가 `NEW!`
-  - Habituation / Visual Reset / Reaction Bite 과학적 근거 정리
-  - 수심별 색상 파장 투과력 시각화 (6m 바닥 기준)
-  - 올리브→블랙→차트리우스→화이트→퍼플 5색 Primary Rotation 확립
-  - 퍼플→올리브 리로테이션 전략 포함
-  - 필드 데이터 업데이트 로그 (v1.0 한터낚시터 20수 검증)
-- 📊 통계 업데이트 (기법 10개)
-
-### 2026-02-13
-- 🔬 **마이크로 님핑 (Micro Nymphing) 가이드** 추가
-  - 레이더 차트 기반 기법 특성 분석
-  - 추천 장비 시스템 인터랙티브 탭 (로드·라인·리더·인디케이터)
-  - 타겟 플라이 패턴 4종 + 라이트박스 이미지 뷰어
-  - 운영 테크닉 3단계 프로세스
-- 📊 통계 업데이트 (기법 9개, 시즌 2026)
-
-### 2025-02-xx
-- 🗺️ **신기지낚시터 포인트 맵** 추가 (인터랙티브 맵 형식)
-- 🎯 **하이브리드 드리프트 피싱** 추가 (Airflo Shorty + 롱 리더 타이트라인 전략)
-- 📁 `spot-maps/` 디렉토리 신설
-- 📊 통계 업데이트 (기법 8개, 카테고리 5개)
-
-### 2025-01-26
-- ❄️ **혹한기 신기지 마스터 가이드** 추가 (인터랙티브 10카드 형식)
-- 🎨 메인 페이지 디자인 전면 개선 (Tailwind CSS 적용)
-- 📊 통계 대시보드 추가
-- 🏷️ 카테고리 시스템 개선 (색상 코딩)
-
-### 2025-01-21
-- 🎯 인디케이터 님핑 기법 2개 추가
-- 🦟 이머저 기법 1개 추가
-- ⚓ 풀싱킹 라인 기법 1개 추가
-- 🧭 전술 매트릭스 1개 추가
-
-### 2025-01-20
-- 🚀 프로젝트 시작 및 기본 구조 구축
-- 📄 GitHub Pages 배포
-
-## 🤝 기여 방법
-
-이 프로젝트는 개인 아카이브 프로젝트이지만, 제안이나 피드백은 언제나 환영합니다!
-
-### 피드백 제공
-- GitHub Issues를 통한 의견 제시
-- 실전 경험 공유
-- 개선 아이디어 제안
-
-### 콘텐츠 제안
-새로운 기법이나 전략에 대한 아이디어가 있다면:
-1. Issue를 열어 제안 내용 공유
-2. 실전 경험 및 효과 설명
-3. 가능하다면 참고 자료 첨부
-
-## 📄 라이선스
-
-이 프로젝트는 개인 학습 및 공유 목적으로 제작되었습니다.
-
-## 👤 제작자
-
-**낚시대장 (Jeff)**
-- GitHub: [@CADDIS-GR](https://github.com/CADDIS-GR)
-- 관리형 낚시터(저수지) 플라이낚시 전문
-- AI 도구를 활용한 낚시 지식 아카이빙
-
-## 💡 FAQ
-
-### Q1. 초보자도 이해할 수 있나요?
-A. 각 기법은 기본 원리부터 단계별로 설명되어 있어 초보자도 충분히 이해할 수 있습니다.
-
-### Q2. 실전에서 바로 적용 가능한가요?
-A. 모든 기법은 실제 관리형 저수지에서 검증된 내용을 바탕으로 작성되었습니다.
-
-### Q3. 새로운 기법이 추가되나요?
-A. 지속적으로 새로운 경험과 기법을 추가할 예정입니다.
-
-### Q4. 모바일에서도 잘 보이나요?
-A. 모든 가이드는 반응형으로 제작되어 모바일, 태블릿에서도 최적화되어 있습니다.
-
-### Q5. 오프라인에서도 사용할 수 있나요?
-A. 저장소를 클론하거나 HTML 파일을 다운로드하여 오프라인에서도 사용 가능합니다.
+| 2026-02-25 | `singiji-light.html` 추가 — 신기지 정밀 분석 리포트 (12회 조행기 데이터 기반) |
+| 2026-02 | `Color_Rotation_Strategy_Guide.html` 추가 |
+| 2026-02 | `3D_fullsinking_mini_leech_sim.html` 추가 |
+| 2026-01 | `Micro_Nymphing_Guide.html` 추가 |
+| 2026-01 | `Hybrid_Drift_Fishing.html` 추가 |
+| 2025-10 | 아카이브 최초 구성 |
 
 ---
 
-## 🎣 Happy Fly Fishing!
-
-플라이 낚시의 즐거움을 함께 나누고, 더 나은 낚시를 위해 끊임없이 배우고 성장합시다!
-
-**"작게, 느리게, 자주 바꾸기" - 혹한기 신기지의 정수**
-
----
-
-<div align="center">
-
-**[🌐 웹사이트 방문하기](https://caddis-gr.github.io/fishing-technique/)** | **[📚 Fly Tying Archive](https://caddis-gr.github.io/fly-tying-archive/)** | **[⭐ Star this repo](https://github.com/CADDIS-GR/fishing-technique)**
-
-Made with ❤️ by 낚시대장 (Jeff) | © 2026 CADDIS-GR
-
-</div>
+*© 2026 CADDIS-GR · Made with ❤️ by 낚시대장 (Jeff)*
