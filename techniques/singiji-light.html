@@ -244,7 +244,7 @@ body::after {
   align-items: center;
   gap: 0.3rem;
   padding: 0.5rem 1rem;
-  margin: 0.45rem 0;
+  margin: 0.45rem 0 0.45rem 0.5rem;
   font-family: 'IBM Plex Mono', monospace;
   font-size: 0.62rem;
   letter-spacing: 0.08em;
@@ -261,6 +261,16 @@ body::after {
   background: var(--moss);
   color: white;
   border-color: var(--moss);
+}
+.nav-ext-md {
+  color: var(--gold);
+  border-color: rgba(154,110,24,0.3);
+  background: rgba(154,110,24,0.06);
+}
+.nav-ext-md:hover {
+  background: var(--gold);
+  color: white;
+  border-color: var(--gold);
 }
 .nav-ext-icon {
   font-size: 0.8rem;
@@ -1135,6 +1145,9 @@ strong { color: var(--ink); font-weight: 600; }
   <div class="nav-spacer"></div>
   <a href="https://caddis-gr.github.io/fishing-technique/techniques/260225-singiji-Attact.html" target="_blank" class="nav-ext-link">
     <span class="nav-ext-icon">↗</span> 신기지 공략법
+  </a>
+  <a href="https://caddis-gr.github.io/fishing-technique/techniques/singiji-light_MD.md" target="_blank" class="nav-ext-link nav-ext-md">
+    <span class="nav-ext-icon">↗</span> MD 문서
   </a>
 </nav>
 
