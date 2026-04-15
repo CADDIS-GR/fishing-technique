@@ -1,302 +1,1022 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Naked Fishing Strategy</title>
-    <style>
-        body {
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background-color: #222;
-            font-family: 'Noto Sans KR', sans-serif;
-            color: white;
-        }
-        h2 {
-            margin: 10px 0;
-            color: #ffcc00;
-        }
-        canvas {
-            background: linear-gradient(to bottom, #87CEEB 0%, #87CEEB 30%, #2F4F4F 30%, #1a2e2e 100%);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-            border-radius: 8px;
-            max-width: 100%;
-        }
-        .controls {
-            margin-top: 10px;
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            background-color: #ff9900;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
-        }
-        button:hover {
-            background-color: #e68a00;
-        }
-        .legend {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #ddd;
-            text-align: left;
-            width: 800px;
-            display: flex;
-            justify-content: space-between;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Naked Line Strategy — Stillwater Edge</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Noto+Sans+KR:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --water-dark: #eef5fc;
+    --water-mid: #ddeeff;
+    --water-surface: #b8d8f0;
+    --water-shimmer: #5a9ec8;
+    --accent-gold: #b87000;
+    --accent-cyan: #0068aa;
+    --accent-red: #cc2200;
+    --accent-green: #1a7a40;
+    --line-orange: #e06000;
+    --line-olive: #5a7a10;
+    --text-primary: #162030;
+    --text-dim: #5a7a96;
+    --panel-bg: rgba(255, 255, 255, 0.88);
+    --border: rgba(90, 158, 200, 0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: linear-gradient(160deg, #e8f4fd 0%, #f5faff 60%, #eaf2f8 100%);
+    font-family: 'Noto Sans KR', sans-serif;
+    word-break: keep-all;
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    padding: 36px 20px 20px;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #5a9ec8, transparent);
+    margin-top: 20px;
+  }
+  .header-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(34px, 7vw, 66px);
+    letter-spacing: 2px;
+    color: var(--text-primary);
+    line-height: 1;
+  }
+  .header h1 span { color: var(--accent-gold); }
+  .header-sub {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 8px;
+    font-weight: 300;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .main-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 16px 60px;
+  }
+
+  /* ── CANVAS SECTION ── */
+  .canvas-section {
+    position: relative;
+    margin: 24px 0;
+  }
+
+  .canvas-wrapper {
+    position: relative;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #cce8f8 0%, #87ceeb 18%, #2a7ab8 18%, #1a5a8a 55%, #0d3a5c 100%);
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .canvas-controls {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 10px 24px;
+    border: 1px solid;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    background: transparent;
+  }
+  .btn-primary {
+    border-color: var(--accent-gold);
+    color: var(--accent-gold);
+  }
+  .btn-primary:hover {
+    background: var(--accent-gold);
+    color: #fff;
+  }
+  .btn-secondary {
+    border-color: var(--accent-cyan);
+    color: var(--accent-cyan);
+  }
+  .btn-secondary:hover {
+    background: var(--accent-cyan);
+    color: #fff;
+  }
+
+  /* ── SPEED CONTROL ── */
+  .speed-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+  .speed-wrap input[type=range] {
+    width: 80px;
+    accent-color: var(--accent-gold);
+  }
+
+  /* ── STATUS BAR ── */
+  .status-bar {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    padding: 12px 16px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+  }
+  .status-item { display: flex; gap: 6px; align-items: center; }
+  .status-label { color: var(--text-dim); }
+  .status-value { color: var(--accent-cyan); font-weight: 600; }
+  .status-value.active { color: var(--accent-green); animation: pulse 1s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  /* ── SECTION TITLE ── */
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    letter-spacing: 1px;
+    color: var(--accent-gold);
+    margin: 40px 0 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(90,158,200,0.4), transparent);
+  }
+
+  /* ── TIP CARDS ── */
+  .tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+  }
+
+  .tip-card {
+    background: var(--panel-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s, transform 0.2s;
+  }
+  .tip-card:hover {
+    border-color: var(--accent-cyan);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(90,158,200,0.15);
+  }
+  .tip-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+  .tip-card:nth-child(1)::before { background: var(--accent-cyan); }
+  .tip-card:nth-child(2)::before { background: var(--accent-gold); }
+  .tip-card:nth-child(3)::before { background: var(--accent-green); }
+  .tip-card:nth-child(4)::before { background: var(--accent-red); }
+  .tip-card:nth-child(5)::before { background: #7030b0; }
+
+  .tip-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    color: rgba(90,158,200,0.10);
+    position: absolute;
+    top: 8px; right: 16px;
+    line-height: 1;
+    pointer-events: none;
+  }
+  .tip-badge {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  .tip-card:nth-child(1) .tip-badge { background: rgba(0,104,170,0.10); color: var(--accent-cyan); }
+  .tip-card:nth-child(2) .tip-badge { background: rgba(184,112,0,0.10); color: var(--accent-gold); }
+  .tip-card:nth-child(3) .tip-badge { background: rgba(26,122,64,0.10); color: var(--accent-green); }
+  .tip-card:nth-child(4) .tip-badge { background: rgba(204,34,0,0.10); color: var(--accent-red); }
+  .tip-card:nth-child(5) .tip-badge { background: rgba(130,60,180,0.10); color: #7030b0; }
+
+  .tip-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .tip-body {
+    font-size: 13px;
+    color: #3a5a72;
+    line-height: 1.75;
+    font-weight: 400;
+  }
+  .tip-body strong { color: var(--text-primary); font-weight: 700; }
+  .tip-formula {
+    margin-top: 12px;
+    padding: 10px 12px;
+    background: rgba(184,112,0,0.07);
+    border-left: 3px solid var(--accent-gold);
+    border-radius: 0 4px 4px 0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent-gold);
+  }
+
+  /* ── LEADER CALC ── */
+  .calc-box {
+    margin-top: 16px;
+    background: var(--panel-bg);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+  }
+  .calc-row {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+  }
+  .calc-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+  .calc-input {
+    background: rgba(255,255,255,0.9);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 8px 12px;
+    color: var(--text-primary);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    width: 90px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .calc-input:focus { border-color: var(--accent-cyan); }
+  .calc-result {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 18px;
+    color: var(--accent-green);
+    font-weight: 600;
+  }
+  .calc-note {
+    font-size: 12px;
+    color: var(--text-dim);
+    margin-top: 6px;
+  }
+
+  /* ── GEAR TABLE ── */
+  .gear-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 8px;
+  }
+  .gear-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+  }
+  .gear-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(42,106,170,0.15);
+    color: #2a4a62;
+  }
+  .gear-table td:first-child {
+    color: var(--accent-gold);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+  }
+  .gear-table tr:last-child td { border-bottom: none; }
+  .gear-table tr:hover td { background: rgba(90,158,200,0.07); }
+
+  /* ── FOOTER ── */
+  .footer {
+    text-align: center;
+    padding: 30px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+    letter-spacing: 1px;
+  }
+  .footer span { color: var(--accent-cyan); font-weight: 600; }
+
+  @media (max-width: 600px) {
+    .tips-grid { grid-template-columns: 1fr; }
+    .status-bar { flex-direction: column; gap: 8px; }
+  }
+</style>
 </head>
 <body>
 
-    <h2>🎣 낚시대장의 Naked Fishing Strategy</h2>
-    <canvas id="fishingCanvas" width="800" height="500"></canvas>
-    
-    <div class="controls">
-        <button onclick="resetAnimation()">▶ 캐스팅 & 액션 시작 (Replay)</button>
+<div class="header">
+  <div class="header-eyebrow">Stillwater Edge · Strategy Guide</div>
+  <h1>NAKED <span>LINE</span> STRATEGY</h1>
+  <p class="header-sub">인디케이터 없이 정수면 중층을 공략하는 고급 기법 — Greg Keenan 팟캐스트 기반</p>
+</div>
+
+<div class="main-wrap">
+
+  <!-- ANIMATION -->
+  <div class="canvas-section">
+    <div class="canvas-wrapper">
+      <canvas id="c" width="900" height="480"></canvas>
     </div>
 
-    <div class="legend">
-        <div>
-            <strong>[채비 구성]</strong><br>
-            🎣 <strong>ROD:</strong> Sage DS2 690-2 (#6)<br>
-            🧵 <strong>LINE:</strong> SA Emerger Tip (WF-6-F/I)<br>
-            🔗 <strong>LEADER:</strong> 15ft Fluorocarbon (4X+4.5X)<br>
-            🪰 <strong>FLY:</strong> 2.5mm Tungsten (Leech/Pupa)
-        </div>
-        <div>
-            <strong>[필드 & 액션]</strong><br>
-            🌊 <strong>MAX DEPTH:</strong> 4.2m<br>
-            ⏱️ <strong>COUNT:</strong> 20초 (바닥층 도달)<br>
-            ✋ <strong>ACTION:</strong> 8자 한 꼬집 (수평 유영)<br>
-            🎯 <strong>TARGET:</strong> 4m권 바닥층
-        </div>
+    <div class="canvas-controls">
+      <button class="btn btn-primary" onclick="resetAnim()">▶ REPLAY</button>
+      <button class="btn btn-secondary" onclick="togglePause()">⏸ PAUSE</button>
+      <div class="speed-wrap">
+        <span>SPEED</span>
+        <input type="range" id="speedSlider" min="0.5" max="3" step="0.5" value="1" oninput="setSpeed(this.value)">
+        <span id="speedLabel">×1</span>
+      </div>
     </div>
 
-    <script>
-        const canvas = document.getElementById('fishingCanvas');
-        const ctx = canvas.getContext('2d');
+    <div class="status-bar">
+      <div class="status-item">
+        <span class="status-label">PHASE</span>
+        <span class="status-value" id="stPhase">READY</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">DEPTH</span>
+        <span class="status-value" id="stDepth">0.0m</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">COUNT</span>
+        <span class="status-value" id="stCount">0s</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">TENSION</span>
+        <span class="status-value" id="stTension">—</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">BITE ALERT</span>
+        <span class="status-value" id="stBite">—</span>
+      </div>
+    </div>
+  </div>
 
-        // 상태 변수
-        let animationState = 'cast'; // cast, sink, retrieve
-        let timer = 0;
-        let castProgress = 0;
-        let sinkProgress = 0;
-        let retrieveProgress = 0;
-        let flyX = 100;
-        let flyY = 150; // 수면
-        
-        // 상수
-        const WATER_LEVEL = 150;
-        const BOTTOM_LEVEL = 450; // 4.2m 바닥
-        const CAST_DISTANCE = 600;
-        const SINK_TIME_LIMIT = 20; // 20카운트
+  <!-- TIPS -->
+  <div class="section-title">5 CORE TIPS</div>
+  <div class="tips-grid">
 
-        function draw() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+    <div class="tip-card">
+      <div class="tip-number">01</div>
+      <div class="tip-badge">LINE & LEADER</div>
+      <div class="tip-title">올바른 라인 선택과 리더 채비</div>
+      <div class="tip-body">
+        <strong>플로팅 라인 필수.</strong> 헤드가 오버사이즈인 인디케이터용 플로팅 라인이 긴 리더 턴오버에 유리합니다.<br><br>
+        테이퍼드 리더 <strong>9~12ft</strong> + 플루오로카본 티펫 연장. 트리플 서전스 매듭으로 연결해 강도를 확보합니다.<br><br>
+        <strong>18ft 이상 수심</strong>에서는 플라이 위 18인치 지점에 배럴 스위벨 또는 좁쌀봉돌 추가 필수.
+      </div>
+      <div class="tip-formula">리더 길이 = 목표 수심 × 1.25</div>
+    </div>
 
-            // 1. 배경 그리기 (물속 단면)
-            drawBackground();
+    <div class="tip-card">
+      <div class="tip-number">02</div>
+      <div class="tip-badge">DEPTH CONTROL</div>
+      <div class="tip-title">정확한 수심 파악과 카운트다운</div>
+      <div class="tip-body">
+        <strong>캐스팅 후 카운트다운</strong>으로 플라이가 목표층에 도달하는 시간을 파악합니다.<br><br>
+        일반적 시작점은 <strong>중층(mid-water)</strong>. 예: 9m 수심에서 물고기가 6m층에 있다면 그 중층을 공략합니다.<br><br>
+        네이키드 라인은 비스듬히 내려가므로 <strong>25% 추가 길이</strong>가 없으면 목표 수심에 도달하지 못합니다.
+      </div>
+      <div class="tip-formula">루프 매듭(Loop Knot)이 클린치 매듭보다 자연스러운 움직임 우위</div>
+    </div>
 
-            // 2. 낚시꾼 그리기
-            drawFisherman();
+    <div class="tip-card">
+      <div class="tip-number">03</div>
+      <div class="tip-badge">RETRIEVE</div>
+      <div class="tip-title">리트리브 기술 — 8자 & 슬로우 스트립</div>
+      <div class="tip-body">
+        <strong>롱 캐스팅 필수.</strong> 멀리 던진 후 리트리브하며 수층 전 구간을 탐색합니다.<br><br>
+        <strong>8자 리트리브</strong> 또는 짧고 부드러운 당김으로 우화 중인 곤충의 움직임을 모방합니다.<br><br>
+        라인 끝부분이 이제 인디케이터. <strong>미묘한 움직임·떨림·정지</strong> 모두 입질 신호입니다. 라인이 옆으로 휙 움직이면 거의 확실한 입질.
+      </div>
+      <div class="tip-formula">S자/C자 처짐 금지 — 항상 미세한 텐션 유지</div>
+    </div>
 
-            // 3. 애니메이션 로직
-            if (animationState === 'cast') {
-                updateCast();
-            } else if (animationState === 'sink') {
-                updateSink();
-            } else if (animationState === 'retrieve') {
-                updateRetrieve();
-            }
+    <div class="tip-card">
+      <div class="tip-number">04</div>
+      <div class="tip-badge">BITE DETECTION</div>
+      <div class="tip-title">인디케이터 없는 입질 감지</div>
+      <div class="tip-body">
+        라인에 <strong>미세한 긴장감(tension)을 항상 유지</strong>해야 합니다. 이것이 이 기법에서 가장 어려운 부분.<br><br>
+        <strong>폴링 중 입질(On the Drop)</strong>이 상당수 발생합니다. 침강 중에도 저항 징후를 주시하고 즉시 들어 올릴 준비를 합니다.<br><br>
+        라인이 <strong>떨리거나 툭 떨어졌다 올라오면</strong> 이미 입질을 놓친 것입니다.
+      </div>
+      <div class="tip-formula">20~30ft 수심에서 무언가 느껴지면 → 그것이 물고기</div>
+    </div>
 
-            // 4. 라인 및 플라이 그리기
-            drawGear();
+    <div class="tip-card">
+      <div class="tip-number">05</div>
+      <div class="tip-badge">FLY SELECTION</div>
+      <div class="tip-title">플라이 선택 — Match the Hatch</div>
+      <div class="tip-body">
+        <strong>키로노미드·메이플라이 님프·작은 리치</strong>가 네이키드 라인 기법에 가장 효과적입니다.<br><br>
+        빛이 적은 상황 → <strong>어두운 색상</strong>, 밝은 상황 → <strong>밝은 색상</strong>.<br><br>
+        <strong>텅스텐 비드 필수.</strong> 공략 수심층까지 빠르게 도달해야 하므로 충분한 무게가 있는 키로노미드를 선택합니다.
+      </div>
+      <div class="tip-formula">작은 사이즈 키로노미드 = 네이키드 라인의 최적 조합</div>
+    </div>
 
-            requestAnimationFrame(draw);
-        }
+  </div>
 
-        function drawBackground() {
-            // 수심 눈금
-            ctx.fillStyle = "rgba(255, 255, 255, 0.2)";
-            ctx.font = "12px Arial";
-            ctx.fillText("수면 (0m)", 720, WATER_LEVEL - 5);
-            
-            ctx.beginPath();
-            ctx.strokeStyle = "rgba(255, 255, 255, 0.1)";
-            ctx.moveTo(0, WATER_LEVEL + 75); // 약 1m
-            ctx.lineTo(800, WATER_LEVEL + 75);
-            ctx.stroke();
+  <!-- LEADER CALCULATOR -->
+  <div class="section-title">LEADER CALCULATOR</div>
+  <div class="calc-box">
+    <div class="calc-row">
+      <span class="calc-label">목표 수심 (m)</span>
+      <input class="calc-input" type="number" id="depthInput" value="4.2" step="0.1" oninput="calcLeader()">
+      <span class="calc-label">→ 필요 리더 길이</span>
+      <span class="calc-result" id="leaderResult">—</span>
+    </div>
+    <div class="calc-note" id="calcNote"></div>
+  </div>
 
-            ctx.beginPath();
-            ctx.moveTo(0, WATER_LEVEL + 150); // 약 2m
-            ctx.lineTo(800, WATER_LEVEL + 150);
-            ctx.stroke();
-            ctx.fillText("2.0m", 750, WATER_LEVEL + 150 - 5);
+  <!-- GEAR SETUP -->
+  <div class="section-title">GEAR SETUP</div>
+  <div class="calc-box">
+    <table class="gear-table">
+      <tr><th>구성</th><th>권장 사양</th><th>비고</th></tr>
+      <tr><td>ROD</td><td>9~10ft, #4~#6</td><td>긴 캐스팅 + 드리프트 제어</td></tr>
+      <tr><td>LINE</td><td>플로팅 WF, 오버사이즈 헤드</td><td>인디케이터용 플로팅 라인 적합</td></tr>
+      <tr><td>LEADER</td><td>테이퍼드 9~12ft + FC 연장</td><td>목표 수심 × 1.25 공식 적용</td></tr>
+      <tr><td>TIPPET</td><td>플루오로카본 4X~6X</td><td>트리플 서전스 매듭 연결</td></tr>
+      <tr><td>WEIGHT</td><td>배럴 스위벨 or 좁쌀봉돌</td><td>18ft+ 수심 시 필수</td></tr>
+      <tr><td>KNOT</td><td>루프 매듭 (Loop Knot)</td><td>플라이 자유로운 움직임 확보</td></tr>
+      <tr><td>FLY</td><td>텅스텐 키로노미드 #14~#18</td><td>침강 속도 확보 필수</td></tr>
+    </table>
+  </div>
 
-            ctx.beginPath();
-            ctx.moveTo(0, WATER_LEVEL + 300); // 약 4m
-            ctx.lineTo(800, WATER_LEVEL + 300);
-            ctx.stroke();
-            ctx.fillText("4.0m", 750, WATER_LEVEL + 300 - 5);
+</div>
 
-            // 바닥
-            ctx.fillStyle = "#3e2723";
-            ctx.fillRect(0, BOTTOM_LEVEL, 800, 50);
-            ctx.fillStyle = "#a1887f";
-            ctx.fillText("바닥 (4.2m)", 720, BOTTOM_LEVEL - 5);
+<div class="footer">
+  CADDIS-GR · <span>Naked Line Strategy</span> · Based on Stillwater Edge Podcast by Greg Keenan
+</div>
 
-            // 송어들
-            drawFish(600, 400);
-            drawFish(450, 420);
-        }
+<script>
+// ── ANIMATION ENGINE ──
+const cv = document.getElementById('c');
+const ctx = cv.getContext('2d');
+const W = cv.width, H = cv.height;
 
-        function drawFish(x, y) {
-            ctx.fillStyle = "#CD853F";
-            ctx.beginPath();
-            ctx.ellipse(x, y, 15, 6, 0, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.beginPath();
-            ctx.moveTo(x + 15, y);
-            ctx.lineTo(x + 22, y - 5);
-            ctx.lineTo(x + 22, y + 5);
-            ctx.fill();
-        }
+// Layout constants
+const SKY_H = H * 0.18;         // 수면 위 하늘
+const SURF_Y = H * 0.18;        // 수면
+const BOT_Y  = H * 0.92;        // 바닥
+const WATER_H = BOT_Y - SURF_Y; // 수중 높이
 
-        function drawFisherman() {
-            ctx.fillStyle = "#333";
-            // 몸통
-            ctx.fillRect(50, 80, 20, 70);
-            // 머리
-            ctx.beginPath();
-            ctx.arc(60, 70, 10, 0, Math.PI * 2);
-            ctx.fill();
-            // 로드
-            ctx.strokeStyle = "#000";
-            ctx.lineWidth = 3;
-            ctx.beginPath();
-            ctx.moveTo(60, 100);
-            ctx.lineTo(120, 50); // 로드 팁
-            ctx.stroke();
-        }
+// Fisherman pos
+const ROD_BASE = { x: 60, y: SURF_Y - 30 };
+const ROD_TIP  = { x: 120, y: SURF_Y - 80 };
 
-        function updateCast() {
-            castProgress += 15;
-            flyX = 120 + castProgress;
-            flyY = WATER_LEVEL; // 수면 위를 날아감
-            
-            if (flyX >= CAST_DISTANCE) {
-                flyX = CAST_DISTANCE;
-                animationState = 'sink';
-                timer = 0;
-            }
-        }
+// Depths (m) mapped to Y
+const MAX_DEPTH = 6.0;
+function depthToY(d) { return SURF_Y + (d / MAX_DEPTH) * WATER_H; }
+function yToDepth(y) { return ((y - SURF_Y) / WATER_H) * MAX_DEPTH; }
 
-        function updateSink() {
-            if (timer < SINK_TIME_LIMIT) {
-                timer += 0.1; // 타이머 속도 조절
-                // 플라이 침강 (바닥 근처까지)
-                let maxSinkDepth = BOTTOM_LEVEL - 20; // 바닥 살짝 위
-                let progress = timer / SINK_TIME_LIMIT;
-                flyY = WATER_LEVEL + (maxSinkDepth - WATER_LEVEL) * progress;
-            } else {
-                animationState = 'retrieve';
-            }
-        }
+// State
+let state = 'idle';  // idle | cast | sink | retrieve | done
+let t = 0;           // frame counter
+let paused = false;
+let speed = 1;
 
-        function updateRetrieve() {
-            if (flyX > 150) {
-                flyX -= 1.0; // 아주 느린 리트리브
-                // 수심 유지 (수평 유영)
-                // 약간의 웨이브 효과 (8자 꼬집기 액션)
-                flyY = (BOTTOM_LEVEL - 20) + Math.sin(flyX * 0.1) * 2; 
-            } else {
-                // 리트리브 끝 -> 다시 캐스팅 대기
-            }
-        }
+// Fly position
+let fly = { x: ROD_TIP.x, y: SURF_Y };
 
-        function drawGear() {
-            // 1. 메인 라인 (SA Emerger Tip - 오렌지/올리브)
-            ctx.beginPath();
-            ctx.strokeStyle = "#FF8C00"; // 오렌지색 러닝라인/벨리
-            ctx.lineWidth = 2;
-            ctx.moveTo(120, 50); // 로드 팁
+// Cast target
+const CAST_TARGET_X = W * 0.82;
+const SINK_DEPTH    = 5.5; // m
+const SINK_TARGET_Y = depthToY(SINK_DEPTH);
 
-            // 라인이 수면에 닿는 지점 계산
-            let lineWaterEntry = 250; 
-            
-            // 캐스팅 중일 때
-            if (animationState === 'cast') {
-                ctx.lineTo(flyX, 50); // 공중 비행
-            } 
-            // 착수 후
-            else {
-                ctx.quadraticCurveTo(150, 120, lineWaterEntry, WATER_LEVEL);
-                ctx.stroke();
+// Fish positions
+let fishes = [
+  { x: W*0.72, y: depthToY(5.2), vx: -0.3, phase: 0 },
+  { x: W*0.60, y: depthToY(4.8), vx:  0.2, phase: 1.2 },
+  { x: W*0.50, y: depthToY(5.5), vx: -0.15, phase: 2.4 },
+];
 
-                // 수면 위 플로팅 부분 (올리브)
-                ctx.beginPath();
-                ctx.strokeStyle = "#808000"; // 올리브
-                // 팁 싱킹 시작 지점 (플라이 쪽에서 약 1.5m 전)
-                // 시각화를 위해 비율 조정
-                let tipStart = flyX - (flyX - lineWaterEntry) * 0.2; 
-                ctx.moveTo(lineWaterEntry, WATER_LEVEL);
-                ctx.lineTo(tipStart, WATER_LEVEL);
-                ctx.stroke();
+// Bite event
+let biteActive = false;
+let biteAlpha  = 0;
+let bitePos    = { x: 0, y: 0 };
 
-                // 2. Emerger Tip (투명/가라앉는 부분) + 리더
-                // 팁부터 플라이까지 직선으로 연결 (텐션 유지)
-                ctx.beginPath();
-                ctx.strokeStyle = "rgba(200, 255, 255, 0.6)"; // 투명/하늘색 (리더+팁)
-                ctx.lineWidth = 1;
-                ctx.setLineDash([2, 2]); // 리더는 얇게 점선 느낌
-                ctx.moveTo(tipStart, WATER_LEVEL); // 팁 시작
-                ctx.lineTo(flyX, flyY); // 플라이 위치
-                ctx.stroke();
-                ctx.setLineDash([]);
-            }
+// Line entry point to water (where fly line meets surface)
+let lineEntryX = CAST_TARGET_X;
 
-            // 3. 플라이 (텅스텐 비드)
-            ctx.fillStyle = "#FF0000"; // 포인트 컬러
-            ctx.beginPath();
-            ctx.arc(flyX, flyY, 4, 0, Math.PI * 2);
-            ctx.fill();
+// Retrieve wave
+let waveOffset = 0;
 
-            // 4. 정보 텍스트 표시
-            ctx.fillStyle = "white";
-            ctx.font = "bold 16px Arial";
-            
-            if (animationState === 'sink') {
-                ctx.fillStyle = "#FFFF00";
-                ctx.fillText(`⏱️ 카운트다운: ${Math.floor(timer)} / 20초`, 350, 100);
-                ctx.fillText("▼ 침강 중 (Free Fall)", flyX + 10, flyY);
-            } else if (animationState === 'retrieve') {
-                ctx.fillStyle = "#00FFFF";
-                ctx.fillText("✋ 8자 리트리브 중 (수평 유영)", 350, 100);
-                ctx.fillText("◀ 은밀한 수평 이동", flyX + 10, flyY);
-                
-                // 컨택트 표시
-                ctx.fillStyle = "#FF9999";
-                ctx.font = "12px Arial";
-                ctx.fillText("⚡ 팽팽한 텐션 (입질 감지)", 200, 200);
-            }
-        }
+// ── HELPERS ──
+function lerp(a, b, t) { return a + (b - a) * t; }
+function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+function easeInOut(t) { return t < 0.5 ? 4*t*t*t : 1-Math.pow(-2*t+2,3)/2; }
 
-        // 초기 실행
-        draw();
+// ── DRAW BACKGROUND ──
+function drawBG() {
+  // Sky
+  let skyGrad = ctx.createLinearGradient(0, 0, 0, SKY_H);
+  skyGrad.addColorStop(0, '#6ab4e8');
+  skyGrad.addColorStop(1, '#c8e8f8');
+  ctx.fillStyle = skyGrad;
+  ctx.fillRect(0, 0, W, SKY_H);
 
-        function resetAnimation() {
-            animationState = 'cast';
-            timer = 0;
-            castProgress = 0;
-            flyX = 100;
-        }
+  // Water
+  let waterGrad = ctx.createLinearGradient(0, SURF_Y, 0, H);
+  waterGrad.addColorStop(0,   '#2a7ab8');
+  waterGrad.addColorStop(0.3, '#1a5a8a');
+  waterGrad.addColorStop(0.7, '#0e3d62');
+  waterGrad.addColorStop(1,   '#082840');
+  ctx.fillStyle = waterGrad;
+  ctx.fillRect(0, SURF_Y, W, H - SURF_Y);
 
-    </script>
+  // Surface shimmer
+  ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(0, SURF_Y); ctx.lineTo(W, SURF_Y);
+  ctx.stroke();
+
+  // Depth grid lines
+  const depths = [1, 2, 3, 4, 5];
+  depths.forEach(d => {
+    const y = depthToY(d);
+    ctx.strokeStyle = 'rgba(255,255,255,0.18)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([4, 8]);
+    ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle = 'rgba(120,180,220,0.35)';
+    ctx.font = '10px "Noto Sans KR", sans-serif';
+    ctx.fillText(`${d}m`, W - 32, y - 3);
+  });
+
+  // Bottom
+  let botGrad = ctx.createLinearGradient(0, BOT_Y, 0, H);
+  botGrad.addColorStop(0, '#5a3a1a');
+  botGrad.addColorStop(1, '#3a2010');
+  ctx.fillStyle = botGrad;
+  ctx.fillRect(0, BOT_Y, W, H - BOT_Y);
+
+  // Bottom texture dots
+  ctx.fillStyle = 'rgba(160,110,60,0.4)';
+  for (let i = 0; i < 40; i++) {
+    ctx.beginPath();
+    ctx.arc(30 + i * 22, BOT_Y + 5, 2 + Math.random() * 3, 0, Math.PI*2);
+    ctx.fill();
+  }
+
+  ctx.fillStyle = 'rgba(180,130,80,0.4)';
+  ctx.font = '10px "Noto Sans KR", sans-serif';
+  ctx.fillText('바닥 · ' + MAX_DEPTH + 'm', W - 75, BOT_Y - 4);
+}
+
+// ── DRAW FISHERMAN ──
+function drawFisherman() {
+  const bx = ROD_BASE.x, by = ROD_BASE.y;
+
+  // Shadow
+  ctx.fillStyle = 'rgba(0,0,0,0.2)';
+  ctx.beginPath();
+  ctx.ellipse(bx + 5, SURF_Y - 2, 18, 4, 0, 0, Math.PI*2);
+  ctx.fill();
+
+  // Body
+  ctx.fillStyle = '#2a3a4a';
+  ctx.fillRect(bx - 10, by, 22, 55);
+
+  // Head
+  ctx.fillStyle = '#f5c5a0';
+  ctx.beginPath(); ctx.arc(bx + 2, by - 10, 10, 0, Math.PI*2); ctx.fill();
+
+  // Hat
+  ctx.fillStyle = '#1a2a3a';
+  ctx.fillRect(bx - 8, by - 22, 22, 6);
+  ctx.fillRect(bx - 4, by - 32, 14, 12);
+
+  // Rod
+  ctx.strokeStyle = '#8B6914';
+  ctx.lineWidth = 3;
+  ctx.lineCap = 'round';
+  ctx.beginPath();
+  ctx.moveTo(bx + 5, by + 10);
+  ctx.lineTo(ROD_TIP.x, ROD_TIP.y);
+  ctx.stroke();
+  ctx.lineWidth = 1;
+
+  // Reel
+  ctx.fillStyle = '#aaa';
+  ctx.beginPath(); ctx.arc(bx + 8, by + 20, 7, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = '#888';
+  ctx.beginPath(); ctx.arc(bx + 8, by + 20, 4, 0, Math.PI*2); ctx.fill();
+}
+
+// ── DRAW LINE & FLY ──
+function drawLine() {
+  if (state === 'idle') return;
+
+  // Running line (from rod tip to water entry)
+  ctx.strokeStyle = '#FF7C1E';
+  ctx.lineWidth = 1.8;
+  ctx.beginPath();
+  ctx.moveTo(ROD_TIP.x, ROD_TIP.y);
+
+  if (state === 'cast') {
+    // Arcing cast line
+    const mx = (ROD_TIP.x + fly.x) / 2;
+    const my = ROD_TIP.y - 40;
+    ctx.quadraticCurveTo(mx, my, fly.x, fly.y);
+    ctx.stroke();
+  } else {
+    // Line to water surface entry
+    ctx.quadraticCurveTo(
+      (ROD_TIP.x + lineEntryX) * 0.5, SURF_Y - 30,
+      lineEntryX, SURF_Y
+    );
+    ctx.stroke();
+
+    // Floating olive section
+    const floatEnd = lineEntryX - (lineEntryX - ROD_TIP.x) * 0.15;
+    ctx.strokeStyle = '#8aaa30';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(lineEntryX, SURF_Y);
+    ctx.lineTo(floatEnd, SURF_Y);
+    ctx.stroke();
+
+    // Leader + tip (underwater, dashed)
+    ctx.strokeStyle = 'rgba(180,240,255,0.55)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3, 4]);
+    ctx.beginPath();
+    ctx.moveTo(floatEnd, SURF_Y);
+    ctx.quadraticCurveTo(
+      (floatEnd + fly.x) * 0.5, (SURF_Y + fly.y) * 0.5 - 10,
+      fly.x, fly.y
+    );
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // Fly (tungsten bead head chironomid)
+  // Body
+  ctx.fillStyle = '#cc1a1a';
+  ctx.beginPath();
+  ctx.ellipse(fly.x, fly.y, 2, 5, -0.3, 0, Math.PI*2);
+  ctx.fill();
+  // Bead
+  const beadColor = state === 'retrieve' && biteActive ? '#ff6600' : '#ff2299';
+  ctx.fillStyle = beadColor;
+  ctx.beginPath();
+  ctx.arc(fly.x + 2, fly.y - 4, 3.5, 0, Math.PI*2);
+  ctx.fill();
+  ctx.strokeStyle = 'rgba(255,255,255,0.4)';
+  ctx.lineWidth = 0.5;
+  ctx.stroke();
+
+  // Bite ring
+  if (biteAlpha > 0) {
+    ctx.strokeStyle = `rgba(255,230,0,${biteAlpha})`;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(fly.x, fly.y, (1 - biteAlpha) * 30 + 5, 0, Math.PI*2);
+    ctx.stroke();
+  }
+}
+
+// ── DRAW FISH ──
+function drawFish(fish) {
+  const x = fish.x, y = fish.y;
+  const facing = fish.vx >= 0 ? 1 : -1;
+
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(facing, 1);
+
+  // Body
+  ctx.fillStyle = '#c07840';
+  ctx.beginPath();
+  ctx.ellipse(0, 0, 14, 5, 0, 0, Math.PI*2);
+  ctx.fill();
+
+  // Spots
+  ctx.fillStyle = 'rgba(40,20,0,0.4)';
+  [-5, 0, 5].forEach(dx => {
+    ctx.beginPath();
+    ctx.arc(dx, -1, 1.5, 0, Math.PI*2);
+    ctx.fill();
+  });
+
+  // Tail
+  ctx.fillStyle = '#a06030';
+  ctx.beginPath();
+  ctx.moveTo(14, 0);
+  ctx.lineTo(22, -5);
+  ctx.lineTo(22, 5);
+  ctx.closePath();
+  ctx.fill();
+
+  // Eye
+  ctx.fillStyle = 'white';
+  ctx.beginPath(); ctx.arc(-8, -1, 2, 0, Math.PI*2); ctx.fill();
+  ctx.fillStyle = '#111';
+  ctx.beginPath(); ctx.arc(-8, -1, 1, 0, Math.PI*2); ctx.fill();
+
+  ctx.restore();
+}
+
+// ── DRAW PHASE LABEL ──
+function drawLabel() {
+  let label = '', color = '#fff', subLabel = '';
+
+  if (state === 'cast') {
+    label = '▶ CASTING';
+    color = '#ff9900';
+    subLabel = '플라이 캐스팅 중...';
+  } else if (state === 'sink') {
+    const d = yToDepth(fly.y);
+    label = `⬇ SINKING  ${d.toFixed(1)}m`;
+    color = '#00e5ff';
+    subLabel = '카운트다운 — 폴링 중 입질 주시!';
+  } else if (state === 'retrieve') {
+    label = '◀ RETRIEVE';
+    color = '#00ff88';
+    subLabel = '8자 리트리브 — 라인 끝을 응시하라';
+  } else if (state === 'done') {
+    label = '✓ END';
+    color = '#f5b800';
+    subLabel = 'REPLAY 버튼으로 다시 보기';
+  }
+
+  // Backdrop
+  ctx.fillStyle = 'rgba(255,255,255,0.88)';
+  ctx.strokeStyle = 'rgba(90,158,200,0.4)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.roundRect(14, 14, 280, 52, 6);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = color;
+  ctx.font = 'bold 15px "DM Serif Display", serif';
+  ctx.fillText(label, 24, 36);
+
+  ctx.fillStyle = '#3a5a72';
+  ctx.font = '11px "Noto Sans KR", sans-serif';
+  ctx.fillText(subLabel, 24, 55);
+}
+
+// ── DRAW TENSION INDICATOR ──
+function drawTension() {
+  if (state !== 'retrieve') return;
+  const dist = Math.sqrt((fly.x - lineEntryX)**2 + (fly.y - SURF_Y)**2);
+  const tension = Math.min(dist / 200, 1);
+
+  ctx.fillStyle = 'rgba(255,255,255,0.88)';
+  ctx.strokeStyle = 'rgba(90,158,200,0.4)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.roundRect(14, 74, 180, 28, 4);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = tension > 0.5 ? '#1a7a40' : '#cc2200';
+  ctx.font = '11px "Noto Sans KR", sans-serif';
+  ctx.fillText('TENSION  ', 24, 91);
+
+  const barW = 100;
+  ctx.fillStyle = 'rgba(90,158,200,0.15)';
+  ctx.fillRect(90, 80, barW, 10);
+  ctx.fillStyle = tension > 0.5 ? '#1a9a50' : '#cc3300';
+  ctx.fillRect(90, 80, barW * tension, 10);
+}
+
+// ── UPDATE STATUS BAR ──
+function updateStatus() {
+  const depth = state === 'sink' || state === 'retrieve' ? yToDepth(fly.y).toFixed(1) : '0.0';
+  document.getElementById('stDepth').textContent = depth + 'm';
+  document.getElementById('stPhase').textContent =
+    state === 'idle' ? 'READY' :
+    state === 'cast' ? 'CASTING' :
+    state === 'sink' ? 'SINKING' :
+    state === 'retrieve' ? 'RETRIEVE' : 'DONE';
+
+  const countEl = document.getElementById('stCount');
+  if (state === 'sink') {
+    const elapsed = (t * speed / 60).toFixed(1);
+    countEl.textContent = elapsed + 's';
+    countEl.className = 'status-value active';
+  } else {
+    countEl.className = 'status-value';
+    if (state === 'retrieve') countEl.textContent = '✓ Done';
+    else countEl.textContent = '—';
+  }
+
+  const tensionEl = document.getElementById('stTension');
+  if (state === 'retrieve') {
+    tensionEl.textContent = 'ACTIVE';
+    tensionEl.className = 'status-value active';
+  } else {
+    tensionEl.textContent = '—';
+    tensionEl.className = 'status-value';
+  }
+
+  const biteEl = document.getElementById('stBite');
+  if (biteActive && biteAlpha > 0) {
+    biteEl.textContent = '⚡ BITE!';
+    biteEl.className = 'status-value active';
+  } else {
+    biteEl.textContent = '—';
+    biteEl.className = 'status-value';
+  }
+}
+
+// ── MAIN LOOP ──
+let castDur   = 60;   // frames for cast
+let sinkDur   = 180;  // frames for sink
+let sinkStart = 0;
+let retrieveStart = 0;
+
+function tick() {
+  if (!paused) {
+    t += speed;
+
+    // ── CAST ──
+    if (state === 'cast') {
+      const p = Math.min(t / castDur, 1);
+      const ep = easeOut(p);
+      fly.x = lerp(ROD_TIP.x, CAST_TARGET_X, ep);
+      fly.y = SURF_Y - Math.sin(p * Math.PI) * 60; // arc
+      if (p >= 1) { state = 'sink'; t = 0; sinkStart = 0; }
+    }
+
+    // ── SINK ──
+    else if (state === 'sink') {
+      const p = Math.min(t / sinkDur, 1);
+      fly.x = CAST_TARGET_X;
+      fly.y = lerp(SURF_Y, SINK_TARGET_Y, easeInOut(p));
+
+      // Random on-drop bite at 40% sink
+      if (p > 0.38 && p < 0.45 && !biteActive && Math.random() < 0.01) {
+        biteActive = true; biteAlpha = 1;
+        bitePos = { x: fly.x, y: fly.y };
+      }
+
+      if (p >= 1) { state = 'retrieve'; t = 0; }
+    }
+
+    // ── RETRIEVE ──
+    else if (state === 'retrieve') {
+      const speed2 = 0.6;
+      fly.x -= speed2 * speed;
+      fly.y = SINK_TARGET_Y + Math.sin(t * 0.07) * 4; // subtle wave
+      waveOffset = t * 0.07;
+
+      lineEntryX = Math.max(ROD_TIP.x + 40, CAST_TARGET_X - (CAST_TARGET_X - ROD_TIP.x) * (t * speed2 * speed / (CAST_TARGET_X - ROD_TIP.x)));
+
+      // Bite at mid-retrieve
+      if (t > 80 && t < 95 && !biteActive && Math.random() < 0.015) {
+        biteActive = true; biteAlpha = 1;
+      }
+
+      if (fly.x < ROD_TIP.x + 80) { state = 'done'; }
+    }
+
+    // Bite fade
+    if (biteAlpha > 0) { biteAlpha -= 0.02; }
+    else { biteActive = false; }
+  }
+
+  // ── RENDER ──
+  ctx.clearRect(0, 0, W, H);
+  drawBG();
+
+  // Fish movement
+  fishes.forEach(f => {
+    if (!paused) {
+      f.x += f.vx * speed;
+      f.y += Math.sin(t * 0.03 + f.phase) * 0.3;
+      if (f.x > W + 30) f.x = -30;
+      if (f.x < -30) f.x = W + 30;
+    }
+    drawFish(f);
+  });
+
+  // Chase fly
+  if (state === 'retrieve' && biteActive) {
+    const closestFish = fishes[0];
+    closestFish.x = lerp(closestFish.x, fly.x + 10, 0.04);
+    closestFish.y = lerp(closestFish.y, fly.y, 0.04);
+    closestFish.vx = closestFish.x > fly.x ? -0.3 : 0.3;
+  }
+
+  drawFisherman();
+  drawLine();
+  drawLabel();
+  drawTension();
+  updateStatus();
+
+  requestAnimationFrame(tick);
+}
+
+// ── CONTROLS ──
+function resetAnim() {
+  state = 'cast';
+  t = 0;
+  fly = { x: ROD_TIP.x, y: SURF_Y };
+  lineEntryX = CAST_TARGET_X;
+  biteActive = false; biteAlpha = 0;
+  paused = false;
+  fishes = [
+    { x: W*0.72, y: depthToY(5.2), vx: -0.3, phase: 0 },
+    { x: W*0.60, y: depthToY(4.8), vx:  0.2, phase: 1.2 },
+    { x: W*0.50, y: depthToY(5.5), vx: -0.15, phase: 2.4 },
+  ];
+}
+
+function togglePause() {
+  paused = !paused;
+  document.querySelector('.btn-secondary').textContent = paused ? '▶ RESUME' : '⏸ PAUSE';
+}
+
+function setSpeed(v) {
+  speed = parseFloat(v);
+  document.getElementById('speedLabel').textContent = '×' + v;
+}
+
+// ── LEADER CALCULATOR ──
+function calcLeader() {
+  const d = parseFloat(document.getElementById('depthInput').value);
+  if (isNaN(d) || d <= 0) { document.getElementById('leaderResult').textContent = '—'; return; }
+  const leaderM = d * 1.25;
+  const leaderFt = (leaderM * 3.281).toFixed(1);
+  document.getElementById('leaderResult').textContent = `${leaderM.toFixed(2)}m  (${leaderFt}ft)`;
+  document.getElementById('calcNote').textContent =
+    `기본 테이퍼드 리더 9ft + 플루오로카본 티펫 약 ${(leaderM - 2.74).toFixed(1)}m 연장 권장` +
+    (leaderM > 5.5 ? '  ·  ⚠ 배럴 스위벨 or 좁쌀봉돌 추가 필수' : '');
+}
+
+// Init
+calcLeader();
+tick();
+</script>
 </body>
 </html>
