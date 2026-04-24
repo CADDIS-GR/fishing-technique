@@ -8,6 +8,8 @@
 ![Season](https://img.shields.io/badge/Season-2026-orange)
 ![Practical](https://img.shields.io/badge/Practical-100%25-success)
 
+🌐 **라이브 페이지 바로가기** : [https://caddis-gr.github.io/fishing-technique/](https://caddis-gr.github.io/fishing-technique/)
+
 ---
 
 ## 📂 수록 기법 목록
