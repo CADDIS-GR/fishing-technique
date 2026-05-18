@@ -4,8 +4,8 @@
 관리형 낚시터(저수지)에서의 실전 경험을 바탕으로 다양한 플라이낚시 기법들을 문서화하고 있습니다.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://caddis-gr.github.io/fishing-technique/)
-![Techniques](https://img.shields.io/badge/Techniques-13-blue)
-![Season](https://img.shields.io/badge/Season-2026-orange)
+![Techniques](https://img.shields.io/badge/Techniques-14-blue)
+![Season](https://img.shields.io/badge/Season-2026--27-orange)
 ![Practical](https://img.shields.io/badge/Practical-100%25-success)
 
 🌐 **라이브 페이지 바로가기** : [https://caddis-gr.github.io/fishing-technique/](https://caddis-gr.github.io/fishing-technique/)
@@ -34,7 +34,7 @@
 | `techniques/Naked_Fishing_With_Indicator.html` | **네이키드 피싱 with 인디케이터** | 인디케이터 님핑의 기본. 수심 조절과 입질 감지 핵심 테크닉 |
 | `techniques/Multi-Split_Indicator_Nymphing.html` | **다분할 인디케이터 마이크로 님핑** | 작고 가벼운 다수 인디케이터를 이용한 마이크로 님핑 |
 | `techniques/Micro_Nymphing_Guide.html` | **마이크로 님핑 (Micro Nymphing)** | 혹한기 극저활성 송어 공략. 장비 시스템·플라이 패턴·3단계 프로세스 |
-| `techniques/Micro_Nymphing_v2_Rigging_System.html` ⭐ NEW | **마이크로 님핑 v2 — 채비 구조와 라인 역할 정리** | Naked / Micro Nymphing 채비 구조 A·B·C 비교 + 수심별 라인 5단계 체계. 바저팁/밋지팁 역할, 풀싱킹 주의사항, 최적 라인 조합 정리 |
+| `techniques/Micro_Nymphing_v2_Rigging_System.html` ⭐ | **마이크로 님핑 v2 — 채비 구조와 라인 역할 정리** | Naked / Micro Nymphing 채비 구조 A·B·C 비교 + 수심별 라인 5단계 체계. 바저팁/밋지팁 역할, 풀싱킹 주의사항, 최적 라인 조합 정리 |
 
 ### 🦟 이머저 & 서피스 (1)
 
@@ -57,6 +57,12 @@
 | `techniques/Hybrid_Drift_Fishing.html` | **하이브리드 드리프트 피싱** | Airflo Shorty + 롱 리더로 6m 심층 공략하는 타이트라인 전략 |
 | `techniques/Color_Rotation_Strategy_Guide.html` | **컬러 로테이션 전략 가이드** | Habituation 차단·Visual Reset 기반 훅 색상 로테이션. 5색 로테이션 세트 |
 
+### 🗓️ 새시즌 준비 (1)
+
+| 파일 | 제목 | 설명 |
+|------|------|------|
+| `stillwater/micro-nymphing/2026-oct-micro-nymphing-strategy.html` 🆕 | **26–27 새시즌 준비 · 10월 Micro Nymphing 전략 설계안** | 25-26 시즌 경험 기반 10월 전략 아카이브. Float·Hover·CamoLux 채비 시스템, 수심별 운영표, 플라이 구성 3군, 실전 로테이션 5라운드, 현장 판단 순서 수록. |
+
 ---
 
 ## 📁 디렉토리 구조
@@ -66,7 +72,7 @@ fishing-technique/
 ├── index.html              # 메인 아카이브 페이지
 ├── README.md
 ├── techniques/             # 기법 문서
-│   ├── Micro_Nymphing_v2_Rigging_System.html   ⭐ NEW — 마이크로 님핑 v2 채비 구조
+│   ├── Micro_Nymphing_v2_Rigging_System.html   — 마이크로 님핑 v2 채비 구조
 │   ├── singiji-light.html                       — 신기지 정밀 분석 리포트
 │   ├── 260225-singiji-Attact.html               — 신기지 공략법
 │   ├── Winter_Singiji_Master_Guide.html
@@ -80,6 +86,9 @@ fishing-technique/
 │   ├── Color_Rotation_Strategy_Guide.html
 │   ├── Stillwater_Tactical_Matrix.html
 │   └── fly_hovering_simulation.html
+├── stillwater/             # 스틸워터 전략 문서
+│   └── micro-nymphing/
+│       └── 2026-oct-micro-nymphing-strategy.html   🆕 — 26-27 새시즌 준비
 └── spot-maps/              # 포인트 맵
     └── shingi-fishing-spot.html
 ```
@@ -98,6 +107,7 @@ fishing-technique/
 
 | 날짜 | 내용 |
 |------|------|
+| 2026-05 | `stillwater/micro-nymphing/2026-oct-micro-nymphing-strategy.html` 추가 — 26-27 새시즌 준비 · 10월 Micro Nymphing 전략 설계안 |
 | 2026-04 | `Micro_Nymphing_v2_Rigging_System.html` 추가 — 채비 구조 A·B·C 비교 + 수심별 라인 5단계 체계 |
 | 2026-02-25 | `singiji-light.html` 추가 — 신기지 정밀 분석 리포트 (12회 조행기 데이터 기반) |
 | 2026-02 | `Color_Rotation_Strategy_Guide.html` 추가 |
