@@ -4,7 +4,7 @@
 관리형 낚시터(저수지)에서의 실전 경험을 바탕으로 다양한 플라이낚시 기법들을 문서화하고 있습니다.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://caddis-gr.github.io/fishing-technique/)
-![Techniques](https://img.shields.io/badge/Techniques-14-blue)
+![Techniques](https://img.shields.io/badge/Techniques-15-blue)
 ![Season](https://img.shields.io/badge/Season-2026--27-orange)
 ![Practical](https://img.shields.io/badge/Practical-100%25-success)
 
@@ -57,11 +57,12 @@
 | `techniques/Hybrid_Drift_Fishing.html` | **하이브리드 드리프트 피싱** | Airflo Shorty + 롱 리더로 6m 심층 공략하는 타이트라인 전략 |
 | `techniques/Color_Rotation_Strategy_Guide.html` | **컬러 로테이션 전략 가이드** | Habituation 차단·Visual Reset 기반 훅 색상 로테이션. 5색 로테이션 세트 |
 
-### 🗓️ 새시즌 준비 (1)
+### 🗓️ 새시즌 준비 (2)
 
 | 파일 | 제목 | 설명 |
 |------|------|------|
-| `stillwater/micro-nymphing/2026-oct-micro-nymphing-strategy.html` 🆕 | **26–27 새시즌 준비 · 10월 Micro Nymphing 전략 설계안** | 25-26 시즌 경험 기반 10월 전략 아카이브. Float·Hover·CamoLux 채비 시스템, 수심별 운영표, 플라이 구성 3군, 실전 로테이션 5라운드, 현장 판단 순서 수록. |
+| `stillwater/micro-nymphing/midge-tip-buzzer-tip-why-review.html` 🆕 | **왜 밋지팁 / 버저팁 라인인가 — Gear Note** | 플로팅 롱리더의 한계와 밋지팁/버저팁 라인의 필요성 정리. Snowbee XS-Plus Buzzer 1 선택 근거, Lock-Up 효과, 채비 체계 포지션, 셋업 가이드 수록. |
+| `stillwater/micro-nymphing/2026-oct-micro-nymphing-strategy.html` | **26–27 새시즌 준비 · 10월 Micro Nymphing 전략 설계안** | 25-26 시즌 경험 기반 10월 전략 아카이브. Float·Hover·CamoLux 채비 시스템, 수심별 운영표, 플라이 구성 3군, 실전 로테이션 5라운드, 현장 판단 순서 수록. |
 
 ---
 
@@ -88,7 +89,8 @@ fishing-technique/
 │   └── fly_hovering_simulation.html
 ├── stillwater/             # 스틸워터 전략 문서
 │   └── micro-nymphing/
-│       └── 2026-oct-micro-nymphing-strategy.html   🆕 — 26-27 새시즌 준비
+│       ├── midge-tip-buzzer-tip-why-review.html    🆕 — 왜 밋지팁/버저팁 라인인가 Gear Note
+│       └── 2026-oct-micro-nymphing-strategy.html   — 26-27 새시즌 준비
 └── spot-maps/              # 포인트 맵
     └── shingi-fishing-spot.html
 ```
@@ -107,6 +109,7 @@ fishing-technique/
 
 | 날짜 | 내용 |
 |------|------|
+| 2026-05 | `stillwater/micro-nymphing/midge-tip-buzzer-tip-why-review.html` 추가 — 왜 밋지팁/버저팁 라인인가 Gear Note |
 | 2026-05 | `stillwater/micro-nymphing/2026-oct-micro-nymphing-strategy.html` 추가 — 26-27 새시즌 준비 · 10월 Micro Nymphing 전략 설계안 |
 | 2026-04 | `Micro_Nymphing_v2_Rigging_System.html` 추가 — 채비 구조 A·B·C 비교 + 수심별 라인 5단계 체계 |
 | 2026-02-25 | `singiji-light.html` 추가 — 신기지 정밀 분석 리포트 (12회 조행기 데이터 기반) |
