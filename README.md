@@ -4,7 +4,7 @@
 관리형 낚시터(저수지)에서의 실전 경험을 바탕으로 다양한 플라이낚시 기법들을 문서화하고 있습니다.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://caddis-gr.github.io/fishing-technique/)
-![Techniques](https://img.shields.io/badge/Techniques-15-blue)
+![Techniques](https://img.shields.io/badge/Techniques-16-blue)
 ![Season](https://img.shields.io/badge/Season-2026--27-orange)
 ![Practical](https://img.shields.io/badge/Practical-100%25-success)
 
@@ -27,7 +27,7 @@
 |------|------|------|
 | `techniques/Winter_Singiji_Master_Guide.html` | **혹한기 신기지 마스터 가이드** | 기온 -10℃ 극한 환경 실전 공략. 작게·느리게·자주 바꾸기. 10개 카드 인터랙티브 가이드 |
 
-### 🎯 인디케이터 님핑 (4)
+### 🎯 인디케이터 님핑 (5)
 
 | 파일 | 제목 | 설명 |
 |------|------|------|
@@ -35,6 +35,7 @@
 | `techniques/Multi-Split_Indicator_Nymphing.html` | **다분할 인디케이터 마이크로 님핑** | 작고 가벼운 다수 인디케이터를 이용한 마이크로 님핑 |
 | `techniques/Micro_Nymphing_Guide.html` | **마이크로 님핑 (Micro Nymphing)** | 혹한기 극저활성 송어 공략. 장비 시스템·플라이 패턴·3단계 프로세스 |
 | `techniques/Micro_Nymphing_v2_Rigging_System.html` ⭐ | **마이크로 님핑 v2 — 채비 구조와 라인 역할 정리** | Naked / Micro Nymphing 채비 구조 A·B·C 비교 + 수심별 라인 5단계 체계. 바저팁/밋지팁 역할, 풀싱킹 주의사항, 최적 라인 조합 정리 |
+| `techniques/Indicator_Chironomid_Strategy.html` 🆕 | **Indicator Chironomid Strategy** | Naked Fishing과 짝을 이루는 Stillwater 핵심 기법. 바닥 +30~80cm에 Chironomid / Balanced Leech를 고정하는 3 Techniques — Cast & Sit · Slow Hand-Twist · Wind Drift |
 
 ### 🦟 이머저 & 서피스 (1)
 
@@ -74,6 +75,7 @@ fishing-technique/
 ├── README.md
 ├── techniques/             # 기법 문서
 │   ├── Micro_Nymphing_v2_Rigging_System.html   — 마이크로 님핑 v2 채비 구조
+│   ├── Indicator_Chironomid_Strategy.html       — Indicator Chironomid Strategy 🆕
 │   ├── singiji-light.html                       — 신기지 정밀 분석 리포트
 │   ├── 260225-singiji-Attact.html               — 신기지 공략법
 │   ├── Winter_Singiji_Master_Guide.html
@@ -109,6 +111,7 @@ fishing-technique/
 
 | 날짜 | 내용 |
 |------|------|
+| 2026-05 | `techniques/Indicator_Chironomid_Strategy.html` 추가 — Indicator Chironomid Strategy (3 Techniques: Cast & Sit · Slow Hand-Twist · Wind Drift) |
 | 2026-05 | `stillwater/micro-nymphing/midge-tip-buzzer-tip-why-review.html` 추가 — 왜 밋지팁/버저팁 라인인가 Gear Note |
 | 2026-05 | `stillwater/micro-nymphing/2026-oct-micro-nymphing-strategy.html` 추가 — 26-27 새시즌 준비 · 10월 Micro Nymphing 전략 설계안 |
 | 2026-04 | `Micro_Nymphing_v2_Rigging_System.html` 추가 — 채비 구조 A·B·C 비교 + 수심별 라인 5단계 체계 |
