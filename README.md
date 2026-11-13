@@ -4,7 +4,7 @@
 관리형 낚시터(저수지)에서의 실전 경험을 바탕으로 다양한 플라이낚시 기법들을 문서화하고 있습니다.
 
 [![GitHub Pages](https://img.shields.io/badge/GitHub%20Pages-Live-brightgreen)](https://caddis-gr.github.io/fishing-technique/)
-![Techniques](https://img.shields.io/badge/Techniques-16-blue)
+![Techniques](https://img.shields.io/badge/Techniques-17-blue)
 ![Season](https://img.shields.io/badge/Season-2026--27-orange)
 ![Practical](https://img.shields.io/badge/Practical-100%25-success)
 
@@ -65,6 +65,12 @@
 | `stillwater/micro-nymphing/midge-tip-buzzer-tip-why-review.html` 🆕 | **왜 밋지팁 / 버저팁 라인인가 — Gear Note** | 플로팅 롱리더의 한계와 밋지팁/버저팁 라인의 필요성 정리. Snowbee XS-Plus Buzzer 1 선택 근거, Lock-Up 효과, 채비 체계 포지션, 셋업 가이드 수록. |
 | `stillwater/micro-nymphing/2026-oct-micro-nymphing-strategy.html` | **26–27 새시즌 준비 · 10월 Micro Nymphing 전략 설계안** | 25-26 시즌 경험 기반 10월 전략 아카이브. Float·Hover·CamoLux 채비 시스템, 수심별 운영표, 플라이 구성 3군, 실전 로테이션 5라운드, 현장 판단 순서 수록. |
 
+### 🖋️ 낚시 생각 (1)
+
+| 파일 | 제목 | 설명 |
+|------|------|------|
+| `techniques/White_Hook_Story.html` 🆕 | **흰바늘 이야기 — Field Essay** | 송어는 왜 민바늘에 반응하는가, 이것을 플라이낚시라고 할 수 있는가. 민바늘을 가장 단순화된 Chironomid 패턴으로 읽고, 수심층 반응을 재는 측정 도구로 쓰는 선을 정리한 에세이. |
+
 ---
 
 ## 📁 디렉토리 구조
@@ -74,6 +80,7 @@ fishing-technique/
 ├── index.html              # 메인 아카이브 페이지
 ├── README.md
 ├── techniques/             # 기법 문서
+│   ├── White_Hook_Story.html                    — 흰바늘 이야기 (Field Essay) 🆕
 │   ├── Micro_Nymphing_v2_Rigging_System.html   — 마이크로 님핑 v2 채비 구조
 │   ├── Indicator_Chironomid_Strategy.html       — Indicator Chironomid Strategy 🆕
 │   ├── singiji-light.html                       — 신기지 정밀 분석 리포트
@@ -111,6 +118,7 @@ fishing-technique/
 
 | 날짜 | 내용 |
 |------|------|
+| 2026-11 | `techniques/White_Hook_Story.html` 추가 — 흰바늘 이야기 (Field Essay · 새 카테고리 "낚시 생각") |
 | 2026-05 | `techniques/Indicator_Chironomid_Strategy.html` 추가 — Indicator Chironomid Strategy (3 Techniques: Cast & Sit · Slow Hand-Twist · Wind Drift) |
 | 2026-05 | `stillwater/micro-nymphing/midge-tip-buzzer-tip-why-review.html` 추가 — 왜 밋지팁/버저팁 라인인가 Gear Note |
 | 2026-05 | `stillwater/micro-nymphing/2026-oct-micro-nymphing-strategy.html` 추가 — 26-27 새시즌 준비 · 10월 Micro Nymphing 전략 설계안 |
