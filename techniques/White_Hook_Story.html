@@ -82,6 +82,18 @@ main { max-width: 760px; margin: 0 auto; padding: 56px 24px 80px; }
 .photo-frame img { width: 100%; height: 440px; object-fit: cover; object-position: 30% 68%; display: block; }
 .photo figcaption { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .08em; color: var(--muted); margin-top: 10px; }
 
+/* Hook card */
+.hook-card { display: grid; grid-template-columns: 200px 1fr; gap: 0; align-items: stretch; background: var(--white); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin: 28px 0; text-decoration: none; color: inherit; transition: border-color .2s, box-shadow .2s; }
+.hook-card:hover { border-color: var(--olive-light); box-shadow: 0 6px 20px rgba(26,28,22,.08); }
+.hook-card-img { background: #fff; border-right: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
+.hook-card-img img { width: 100%; height: 200px; object-fit: contain; display: block; }
+.hook-card-body { padding: 22px 24px; display: flex; flex-direction: column; justify-content: center; }
+.hook-card-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--orange); margin-bottom: 6px; }
+.hook-card-name { font-family: 'DM Serif Display', 'Noto Sans KR', serif; font-size: 21px; color: var(--dark); margin-bottom: 8px; }
+.hook-card-body p { font-size: 14.5px; line-height: 1.8; color: var(--mid); word-break: keep-all; }
+.hook-card-link { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .08em; color: var(--olive); margin-top: 12px; }
+.hook-card:hover .hook-card-link { color: var(--orange); }
+
 /* Reason cards */
 .reasons { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 28px 0; }
 .reason { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 20px 22px; }
@@ -135,6 +147,9 @@ footer a { color: rgba(200,190,170,.75); }
 @media (max-width: 640px) {
   .sticky-nav-menu { display: none; }
   .reasons, .views { grid-template-columns: 1fr; }
+  .hook-card { grid-template-columns: 1fr; }
+  .hook-card-img { border-right: none; border-bottom: 1px solid var(--border); }
+  .hook-card-img img { height: 180px; }
   .readout { grid-template-columns: 1fr; }
   .readout div { border-right: none; border-bottom: 1px solid var(--border); }
   .readout div:last-child { border-bottom: none; }
@@ -205,6 +220,18 @@ footer a { color: rgba(200,190,170,.75); }
       <p class="lead">흰바늘, 빨간바늘. 아무것도 감지 않은 이 민바늘에 송어가 곧잘 반응한다.</p>
       <p>아예 여러 색의 민바늘만 쓰는 사람도 있다. 옆에서 샘이 나도록 걷어 올리길래 다가가 물어보면, 흰바늘을 쓴다고 한다.</p>
     </div>
+
+    <a class="hook-card" href="https://gamakatsu.com/product/octopus-uv/" target="_blank" rel="noopener">
+      <div class="hook-card-img">
+        <img src="../images/white-hook-octopus-uv.jpg" alt="흰색 UV 코팅 옥토퍼스 훅 — Gamakatsu Octopus UV">
+      </div>
+      <div class="hook-card-body">
+        <div class="hook-card-label">The Hook · 흰바늘</div>
+        <div class="hook-card-name">Gamakatsu Octopus UV</div>
+        <p>흰색 UV 코팅을 입힌 옥토퍼스 훅. 위로 꺾인 아이에 짧고 둥근 벤드. 감은 것은 아무것도 없다.</p>
+        <span class="hook-card-link">↗ Gamakatsu 제품 페이지 · 이미지 출처</span>
+      </div>
+    </a>
 
     <figure class="photo">
       <div class="photo-frame">
